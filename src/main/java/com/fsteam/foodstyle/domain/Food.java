@@ -23,6 +23,8 @@ public class Food {
 
     private String restaurantname;
 
+    private String category; // added
+
     public Long getId() {
         return id;
     }
@@ -79,6 +81,12 @@ public class Food {
         this.restaurantname = restaurantname;
     }
 
+    // added
+    public String getCategory() { return category; }
+
+    // added
+    public void setCategory(String categoryName) { this.category = categoryName; }
+
     @Override
     public String toString() {
         return "Food{" +
@@ -89,6 +97,7 @@ public class Food {
                 ", photo='" + photo + '\'' +
                 ", restaurantid=" + restaurantid +
                 ", restaurantname='" + restaurantname + '\'' +
+                ", category='" + category + '\'' +
                 '}';
     }
 }
