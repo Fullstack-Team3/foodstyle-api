@@ -102,9 +102,6 @@ $.ajax({
         // add animation for scrolling component when a category in the category list is clicked
         // Will scroll to the section containing the food for that category
         for (let i=0; i < uniq_categories.length; i++){
-            console.log(uniq_categories[i])
-            console.log("[id='"+uniq_categories[i]+"-scroll']")
-            console.log("[id='"+uniq_categories[i]+"']")
             $("[id='"+uniq_categories[i]+"-scroll']").click(function() {
                 $('html,body').animate({
                         scrollTop: $("[id='"+uniq_categories[i]+"-label']").offset().top},

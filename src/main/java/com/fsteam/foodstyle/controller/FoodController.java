@@ -1,10 +1,9 @@
 package com.fsteam.foodstyle.controller;
 
+import com.fsteam.foodstyle.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import com.fsteam.foodstyle.domain.Food; // Added
 import com.fsteam.foodstyle.repository.FoodRepository; // Added
 
@@ -21,4 +20,5 @@ public class FoodController {
     public List<Food> findAllFood(){
         return foodRepository.findAllByRestaurantid((long) 1);
     }
+
 }
