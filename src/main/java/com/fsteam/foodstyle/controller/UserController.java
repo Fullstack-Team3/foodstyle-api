@@ -71,5 +71,4 @@ public class UserController {
         user.setUserType(2);
         return userRepository.save(user);
     }
-
 }
