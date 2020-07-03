@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Food Style</title>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/common.css">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link href="customerpages/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="customerpages/css/common.css">
+    <link rel="stylesheet" type="text/css" href="customerpages/css/index.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -22,30 +22,26 @@
         <div class="header_wrap">
             <div class="topbar">
                 <div class="logo">
-                    <a href="/"><img src="images/logo.png" height="70px" width="70px"></a>
+                    <a href="/"><img src="customerpages/images/logo.png" height="70px" width="70px"></a>
                 </div>
                 <div class="search">
                     <input name="" type="text" placeholder="please input the name of restaurant" class="search_input" autocomplete="off">
                     <a href="javascript:;" class="search-button">Search</a>
                 </div>
 				<div class="shortcut">
-				    
-				    <!-- login status  -->
-					
-				    <div class="login">
-				        <span id="loginContent">Welcome back</span>
-						<span>----</span>
-				        <a href="javascript:;" onclick="logOut()">Log Out</a>
+				    <!-- unlogin status  -->
+				    <div class="login_out">
+				        <a href="customerpages/login.html">login</a>
+				        <a href="customerpages/register.html">register</a>
 				    </div>
-                    <script type="text/javascript">
-                        const username = window.localStorage.getItem('username');
-                        document.getElementById('loginContent').innerText = "Welcome back，" + username;
-                        function logOut() {
-                            window.localStorage.setItem('username', '');
-                            window.location = "http://localhost:8080/customerpages/index_restaurant_list.html";
-                        }
-                    </script>
-					
+				    <!-- login status  -->
+					<!--
+				    <div class="login">
+				        <span>welcome back，admin</span>
+				        <a href="myfavorite.html" class="collection">My Favorite</a>
+				        <a href="javascript:;">log out</a>
+				    </div>
+					-->
 				</div>
             </div>
         </div>
@@ -62,13 +58,13 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="images/banner_1.jpg" alt="">
+                    <img src="customerpages/images/banner_1.jpg" alt="">
                 </div>
                 <div class="item">
-                    <img src="images/banner_2.jpg" alt="">
+                    <img src="customerpages/images/banner_2.jpg" alt="">
                 </div>
                 <div class="item">
-                    <img src="images/banner_3.jpg" alt="">
+                    <img src="customerpages/images/banner_3.jpg" alt="">
                 </div>
             </div>
             <!-- Controls -->
@@ -88,7 +84,7 @@
         <section class="hemai_jx">
             <div class="jx_top">
                 <div class="jx_tit">
-                    <img src="images/icon_5.jpg" alt="">
+                    <img src="customerpages/images/icon_5.jpg" alt="">
                     <span>Category</span>
                 </div>
                 <!-- Nav tabs -->
@@ -115,7 +111,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <a href="javascript:;">
-                                    <img src="images/subway.jpeg" alt="">
+                                    <img src="customerpages/images/subway.jpeg" alt="">
                                     <div class="has_border">
 										<h3>Subway</h3>
                                         <h3>Write your own content here please</h3>
@@ -125,7 +121,7 @@
                             </div>
                             <div class="col-md-3">
                                 <a href="javascript:;">
-                                    <img src="images/kfc.jpg" alt="">
+                                    <img src="customerpages/images/kfc.jpg" alt="">
                                     <div class="has_border">
 										<h3>KFC</h3>
                                         <h3>Write your own content here please</h3>
@@ -135,7 +131,7 @@
                             </div>
                             <div class="col-md-3">
                                 <a href="javascript:;">
-                                    <img src="images/subway.jpeg" alt="">
+                                    <img src="customerpages/images/subway.jpeg" alt="">
                                     <div class="has_border">
 										<h3>Subway</h3>
                                         <h3>Write your own content here please</h3>
@@ -145,7 +141,7 @@
                             </div>
                             <div class="col-md-3">
                                 <a href="javascript:;">
-                                    <img src="images/kfc.jpg" alt="">
+                                    <img src="customerpages/images/kfc.jpg" alt="">
                                     <div class="has_border">
 										<h3>KFC</h3>
                                         <h3>Write your own content here please</h3>
@@ -157,7 +153,7 @@
 						<div class="row">
 						    <div class="col-md-3">
 						        <a href="javascript:;">
-						            <img src="images/subway.jpeg" alt="">
+						            <img src="customerpages/images/subway.jpeg" alt="">
 						            <div class="has_border">
 										<h3>Subway</h3>
 						                <h3>Write your own content here please</h3>
@@ -167,7 +163,7 @@
 						    </div>
 						    <div class="col-md-3">
 						        <a href="javascript:;">
-						            <img src="images/kfc.jpg" alt="">
+						            <img src="customerpages/images/kfc.jpg" alt="">
 						            <div class="has_border">
 										<h3>KFC</h3>
 						                <h3>Write your own content here please</h3>
@@ -177,7 +173,7 @@
 						    </div>
 						    <div class="col-md-3">
 						        <a href="javascript:;">
-						            <img src="images/subway.jpeg" alt="">
+						            <img src="customerpages/images/subway.jpeg" alt="">
 						            <div class="has_border">
 										<h3>Subway</h3>
 						                <h3>Write your own content here please</h3>
@@ -187,7 +183,7 @@
 						    </div>
 						    <div class="col-md-3">
 						        <a href="javascript:;">
-						            <img src="images/kfc.jpg" alt="">
+						            <img src="customerpages/images/kfc.jpg" alt="">
 						            <div class="has_border">
 										<h3>KFC</h3>
 						                <h3>Write your own content here please</h3>
@@ -199,7 +195,7 @@
 						<div class="row">
 						    <div class="col-md-3">
 						        <a href="javascript:;">
-						            <img src="images/subway.jpeg" alt="">
+						            <img src="customerpages/images/subway.jpeg" alt="">
 						            <div class="has_border">
 										<h3>Subway</h3>
 						                <h3>Write your own content here please</h3>
@@ -209,7 +205,7 @@
 						    </div>
 						    <div class="col-md-3">
 						        <a href="javascript:;">
-						            <img src="images/kfc.jpg" alt="">
+						            <img src="customerpages/images/kfc.jpg" alt="">
 						            <div class="has_border">
 										<h3>KFC</h3>
 						                <h3>Write your own content here please</h3>
@@ -219,7 +215,7 @@
 						    </div>
 						    <div class="col-md-3">
 						        <a href="javascript:;">
-						            <img src="images/subway.jpeg" alt="">
+						            <img src="customerpages/images/subway.jpeg" alt="">
 						            <div class="has_border">
 										<h3>Subway</h3>
 						                <h3>Write your own content here please</h3>
@@ -229,7 +225,7 @@
 						    </div>
 						    <div class="col-md-3">
 						        <a href="javascript:;">
-						            <img src="images/kfc.jpg" alt="">
+						            <img src="customerpages/images/kfc.jpg" alt="">
 						            <div class="has_border">
 										<h3>KFC</h3>
 						                <h3>Write your own content here please</h3>
@@ -248,7 +244,7 @@
         <div class="why_select">
             <dl>
                 <dt class="fl">
-                    <img src="images/icon_1.jpg" alt="">
+                    <img src="customerpages/images/icon_1.jpg" alt="">
                 </dt>
                 <dd>
                     <h1>Title</h1>
@@ -257,7 +253,7 @@
             </dl>
             <dl>
                 <dt class="fl">
-                    <img src="images/icon_2.jpg" alt="">
+                    <img src="customerpages/images/icon_2.jpg" alt="">
                 </dt>
                 <dd>
                     <h1>Title</h1>
@@ -266,7 +262,7 @@
             </dl>
             <dl>
                 <dt class="fl">
-                    <img src="images/icon_3.jpg" alt="">
+                    <img src="customerpages/images/icon_3.jpg" alt="">
                 </dt>
                 <dd>
                     <h1>Title</h1>
@@ -275,7 +271,7 @@
             </dl>
 			<dl>
 			    <dt class="fl">
-			        <img src="images/icon_3.jpg" alt="">
+			        <img src="customerpages/images/icon_3.jpg" alt="">
 			    </dt>
 			    <dd>
 			        <h1>Title</h1>
@@ -284,7 +280,7 @@
 			</dl>
 			<dl>
 			    <dt class="fl">
-			        <img src="images/icon_3.jpg" alt="">
+			        <img src="customerpages/images/icon_3.jpg" alt="">
 			    </dt>
 			    <dd>
 			        <h1>Title</h1>
@@ -293,7 +289,7 @@
 			</dl>
             <dl>
                 <dt class="fl">
-                    <img src="images/icon_4.jpg" alt="">
+                    <img src="customerpages/images/icon_4.jpg" alt="">
                 </dt>
                 <dd style="margin-right:0px;">
                     <h1>Title</h1>
@@ -304,9 +300,9 @@
         </div>
     </footer>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="customerpages/js/jquery-2.1.0.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="customerpages/js/bootstrap.min.js"></script>
     
 </body>
 </html>
