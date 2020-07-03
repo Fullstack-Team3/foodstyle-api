@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class RestaurantController {
@@ -41,7 +42,12 @@ public class RestaurantController {
     @GetMapping("/restaurants")
     @ResponseBody
     public List<Restaurant> findAllRestaurants(){
-        return restaurantRepository.findAll();
+        return restaurantRepository.findAll().stream().map(restaurant -> {
+            if (restaurant.getAvgprice()==null){
+                restaurant.setAvgprice(0D);
+            }
+            return restaurant;
+        }).collect(Collectors.toList());
     }
 
     @GetMapping("/restaurants/category/{category}")

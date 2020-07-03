@@ -73,7 +73,7 @@
                         td_category.appendTo(tr);
 
                         var td_avgprice = $('<td></td>');
-                        td_avgprice.text(obj.avgprice);
+                        td_avgprice.text(obj.avgprice == 0 ? "--" : ("$" + obj.avgprice));
                         td_avgprice.appendTo(tr);
 
                         var td_phone = $('<td></td>');

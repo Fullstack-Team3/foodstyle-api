@@ -13,11 +13,97 @@
             text-align: center;
         }
     </style>
+    <script type="text/javascript">
+        function edit(obj) {
+            location.href = "http://localhost:8080/managerpages/restaurant_update_content.html?id="+obj.id;
+        }
+        function del(obj) {
+            $.ajax({
+                type: "delete",
+                url: "http://localhost:8080/restaurants/"+obj.id,
+                async: true,
+                contentType: 'application/json',
+                dataType: 'JSON',
+                success: function(data) {
+                    location.reload(true);
+                }
+            });
+        }
+        function loadData(){
+            $.ajax({
+                type: "get",
+                url: "http://localhost:8080/restaurants",
+                async: true,
+                contentType: 'application/json',
+                dataType: 'JSON',
+                success: function(data) {
+                    var table = $('#table');
+                    $.each(data, function (i, obj) {
+                        var tr = $('<tr></tr>');
+                        var td_id = $('<td></td>');
+                        td_id.text(obj.id);
+                        td_id.appendTo(tr);
+
+                        var td_name = $('<td></td>');
+                        td_name.text(obj.name);
+                        td_name.appendTo(tr);
+
+                        var td_address = $('<td></td>');
+                        td_address.text(obj.address);
+                        td_address.appendTo(tr);
+
+                        var td_opentime = $('<td></td>');
+                        td_opentime.text(obj.opentime);
+                        td_opentime.appendTo(tr);
+
+                        var td_category = $('<td></td>');
+                        switch (obj.category){
+                            case 1:
+                                td_category.text('American Restaurant');
+                                break;
+                            case 2:
+                                td_category.text('Chinese Restaurant');
+                                break;
+                            case 3:
+                                td_category.text('Indian Restaurant');
+                                break;
+                            default:
+                                td_category.text(obj.category);
+                        }
+                        td_category.appendTo(tr);
+
+                        var td_avgprice = $('<td></td>');
+                        td_avgprice.text(obj.avgprice == 0 ? "--" : ("$" + obj.avgprice));
+                        td_avgprice.appendTo(tr);
+
+                        var td_phone = $('<td></td>');
+                        td_phone.text(obj.phone);
+                        td_phone.appendTo(tr);
+
+                        var td_opt = $('<td></td>');
+                        var a1 = $('<a class="btn btn-default btn-sm" onclick="edit(this)">Edit</a>');
+                        a1.attr('id', obj.id);
+                        var span = $('<span>   </span>');
+                        var a2 = $('<a class="btn btn-default btn-sm" onclick="del(this)">Delete</a>');
+                        a2.attr('id', obj.id);
+                        a1.appendTo(td_opt);
+                        span.appendTo(td_opt);
+                        a2.appendTo(td_opt);
+                        td_opt.appendTo(tr);
+
+                        tr.appendTo(table);
+
+                    })
+                }
+            });
+        }
+
+    </script>
 </head>
-<body>
+<body onload="loadData()">
 <div class="container">
     <h3 style="text-align: center">Restaurant List</h3>
-    <table border="1" class="table table-bordered table-hover">
+    <table id="table" border="1" class="table table-bordered table-hover">
         <tr class="success">
             <th>ID</th>
             <th>Name</th>
@@ -29,148 +115,11 @@
 			<th>Telphone</th>
             <th>Operate</th>
         </tr>
+
+    </table>
+    <table width="100%">
         <tr>
-            <td>1</td>
-            <td>KFC</td>
-            <td>xxxxxxxxxxxxxxx</td>
-            <td>10am-9pm,Mon-Sun</td>
-            
-            <td>American Restaurant</td>
-			<td>$15</td>
-            <td>7202971234</td>
-            <td>
-            	<a class="btn btn-default btn-sm" href="update.html">Edit</a>&nbsp;
-            	<a class="btn btn-default btn-sm" href="">Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Subway</td>
-            <td>xxxxxxxxxxxxxxx</td>
-            <td>10am-9pm,Mon-Sun</td>
-            
-            <td>American Restaurant</td>
-            <td>$15</td>
-            <td>7202971234</td>
-            <td>
-            	<a class="btn btn-default btn-sm" href="update.html">Edit</a>&nbsp;
-            	<a class="btn btn-default btn-sm" href="">Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Star Kitchen</td>
-            <td>xxxxxxxxxxxxxxx</td>
-            <td>10am-9pm,Mon-Sun</td>
-            
-            <td>Chinese Restaurant</td>
-            <td>$15</td>
-            <td>7202971234</td>
-            <td>
-            	<a class="btn btn-default btn-sm" href="update.html">Edit</a>&nbsp;
-            	<a class="btn btn-default btn-sm" href="">Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>Yummy Yummy Spicy</td>
-            <td>xxxxxxxxxxxxxxx</td>
-            <td>10am-9pm,Mon-Sun</td>
-            
-            <td>Chinese Restaurant</td>
-            <td>$15</td>
-            <td>7202971234</td>
-            <td>
-            	<a class="btn btn-default btn-sm" href="update.html">Edit</a>&nbsp;
-            	<a class="btn btn-default btn-sm" href="">Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>KFC</td>
-            <td>xxxxxxxxxxxxxxx</td>
-            <td>10am-9pm,Mon-Sun</td>
-            
-            <td>American Restaurant</td>
-            <td>$15</td>
-            <td>7202971234</td>
-            <td>
-            	<a class="btn btn-default btn-sm" href="update.html">Edit</a>&nbsp;
-            	<a class="btn btn-default btn-sm" href="">Delete</a>
-            </td>
-        </tr>
-		<tr>
-		    <td>6</td>
-		    <td>KFC</td>
-		    <td>xxxxxxxxxxxxxxx</td>
-		    <td>10am-9pm,Mon-Sun</td>
-		    
-		    <td>American Restaurant</td>
-		    <td>$15</td>
-		    <td>7202971234</td>
-		    <td>
-		    	<a class="btn btn-default btn-sm" href="update.html">Edit</a>&nbsp;
-		    	<a class="btn btn-default btn-sm" href="">Delete</a>
-		    </td>
-		</tr>
-		<tr>
-		    <td>7</td>
-		    <td>KFC</td>
-		    <td>xxxxxxxxxxxxxxx</td>
-		    <td>10am-9pm,Mon-Sun</td>
-		    
-		    <td>American Restaurant</td>
-		    <td>$15</td>
-		    <td>7202971234</td>
-		    <td>
-		    	<a class="btn btn-default btn-sm" href="update.html">Edit</a>&nbsp;
-		    	<a class="btn btn-default btn-sm" href="">Delete</a>
-		    </td>
-		</tr>
-		<tr>
-		    <td>8</td>
-		    <td>KFC</td>
-		    <td>xxxxxxxxxxxxxxx</td>
-		    <td>10am-9pm,Mon-Sun</td>
-		    
-		    <td>American Restaurant</td>
-		    <td>$15</td>
-		    <td>7202971234</td>
-		    <td>
-		    	<a class="btn btn-default btn-sm" href="update.html">Edit</a>&nbsp;
-		    	<a class="btn btn-default btn-sm" href="">Delete</a>
-		    </td>
-		</tr>
-		<tr>
-		    <td>9</td>
-		    <td>KFC</td>
-		    <td>xxxxxxxxxxxxxxx</td>
-		    <td>10am-9pm,Mon-Sun</td>
-		    
-		    <td>American Restaurant</td>
-		    <td>$15</td>
-		    <td>7202971234</td>
-		    <td>
-		    	<a class="btn btn-default btn-sm" href="update.html">Edit</a>&nbsp;
-		    	<a class="btn btn-default btn-sm" href="">Delete</a>
-		    </td>
-		</tr>
-		<tr>
-		    <td>10</td>
-		    <td>KFC</td>
-		    <td>xxxxxxxxxxxxxxx</td>
-		    <td>10am-9pm,Mon-Sun</td>
-		    
-		    <td>American Restaurant</td>
-		    <td>$15</td>
-		    <td>7202971234</td>
-		    <td>
-		    	<a class="btn btn-default btn-sm" href="update.html">Edit</a>&nbsp;
-		    	<a class="btn btn-default btn-sm" href="">Delete</a>
-		    </td>
-		</tr>
-        <tr>
-            <td colspan="9" align="center"><a class="btn btn-primary" href="add.html">Add New Restaurant</a></td>
+            <td colspan="9" align="center" width="100%"><a class="btn btn-primary" onclick="parent.location='http://localhost:8080/managerpages/restaurant_add.html'">Add New Restaurant</a></td>
         </tr>
     </table>
 </div>
