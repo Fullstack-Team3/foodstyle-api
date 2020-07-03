@@ -29,19 +29,30 @@
                     <a href="javascript:;" class="search-button">Search</a>
                 </div>
 				<div class="shortcut">
-				    <!-- unlogin status  -->
-				    <div class="login_out">
-				        <a href="customerpages/login.html">login</a>
-				        <a href="customerpages/register.html">register</a>
-				    </div>
-				    <!-- login status  -->
-					<!--
-				    <div class="login">
-				        <span>welcome back，admin</span>
-				        <a href="myfavorite.html" class="collection">My Favorite</a>
-				        <a href="javascript:;">log out</a>
-				    </div>
-					-->
+                    <div id="logoutDiv" class="login_out">
+                        <a href="customerpages/login.html">login</a>
+                        <a href="customerpages/register.html">register</a>
+                    </div>
+
+                    <div id="loginDiv" class="login">
+                        <span id="loginContent">Welcome back</span>
+                        <span>----</span>
+                        <a href="javascript:;" onclick="logOut()">Log Out</a>
+                    </div>
+                    <script type="text/javascript">
+                        const username = window.localStorage.getItem('username');
+                        if (username == ''){
+                            document.getElementById('loginDiv').style.display = 'none';
+                        }else {
+                            document.getElementById('logoutDiv').style.display = 'none';
+                            document.getElementById('loginContent').innerText = "Welcome back，" + username;
+                        }
+
+                        function logOut() {
+                            window.localStorage.setItem('username', '');
+                            window.location = "http://localhost:8080/";
+                        }
+                    </script>
 				</div>
             </div>
         </div>

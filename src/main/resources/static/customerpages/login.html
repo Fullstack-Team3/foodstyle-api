@@ -34,7 +34,7 @@
                 success: function(data) {
                     if (data.success == 1){
                         window.localStorage.setItem('username', data.username);
-                        window.location = "http://localhost:8080/customerpages/index_restaurant_list_loggedin.html";
+                        window.location = "http://localhost:8080";
                     }else{
                         alert(data.message);
                     }
