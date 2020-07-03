@@ -12,11 +12,54 @@
     <script src="dist/js/jquery-2.1.0.min.js"></script>
     
     <script src="dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function loadData(){
+            var urlParams = new URLSearchParams(location.search);
+            var id = urlParams.get('id');
+            $.ajax({
+                type: "get",
+                url: "http://localhost:8080/restaurants/"+id,
+                async: true,
+                contentType: 'application/json',
+                dataType: 'JSON',
+                success: function(data) {
+                    $('#id').val(data.id);
+                    $('#name').val(data.name);
+                    $('#address').val(data.address);
+                    $('#opentime').val(data.opentime);
+                    $('#category').val(data.category);
+                    $('#photo').val(data.photo);
+                    $('#phone').val(data.phone);
+                }
+            })
+        }
+
+        function submitForm(){
+            var fields = $('#form').serializeArray();
+            var obj = {};
+            $.each(fields, function(index, field) {
+                obj[field.name] = field.value;
+            });
+            $.ajax({
+                type: "post",
+                url: "http://localhost:8080/restaurants",
+                async: true,
+                contentType: 'application/json',
+                dataType: 'JSON',
+                data: JSON.stringify(obj),
+                success: function(data) {
+                    alert("Updated successfully!");
+                    location.href = "http://localhost:8080/managerpages/restaurant_list_content.html"
+                }
+            });
+        }
+    </script>
 </head>
-<body>
+<body onload="loadData()">
 <div class="container">
     <center><h3>Update Restaurant</h3></center>
-    <form action="" method="post">
+    <form id="form" action="" method="post">
+        <input type="hidden" id="id" name="id"/>
         <div class="form-group">
             <label for="name">Name：</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Please input the name of the restaurant">
@@ -35,9 +78,9 @@
 			<label for="category">Category：</label>
 			<select name="category" class="form-control" id="category">
 				<option value="">Please select the category</option>
-				<option value="American Restaurant">American Restaurant</option>
-				<option value="Chinese Restaurant">Chinese Restaurant</option>
-				<option value="Indian Restaurant">Indian Restaurant</option>
+				<option value="1">American Restaurant</option>
+				<option value="2">Chinese Restaurant</option>
+				<option value="3">Indian Restaurant</option>
 			</select>
 		</div>
 		
@@ -52,9 +95,8 @@
         </div>
 
         <div class="form-group" style="text-align: center">
-            <input class="btn btn-primary" type="submit" value="Summit" />
+            <input class="btn btn-primary" type="button" value="Summit" onclick="submitForm()"/>
             <input class="btn btn-default" type="reset" value="Reset" />
-            <input class="btn btn-default" type="button" value="Back" />
         </div>
     </form>
 </div>
