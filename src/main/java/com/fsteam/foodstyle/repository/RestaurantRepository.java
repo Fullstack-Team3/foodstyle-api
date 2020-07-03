@@ -8,5 +8,5 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
 
     List<Restaurant> findAllByCategory(Integer category);
 
-    List<Restaurant> findAllByNameLike(String name);
+    List<Restaurant> findAllByCategoryAndNameLike(Integer category, String name);
 }

@@ -53,12 +53,38 @@ public class RestaurantController {
     @GetMapping("/restaurants/category/{category}")
     @ResponseBody
     public List<Restaurant> findAllRestaurantsByCategory(@PathVariable Integer category){
-        return restaurantRepository.findAllByCategory(category);
+        return restaurantRepository.findAllByCategory(category).stream().map(restaurant -> {
+            if (restaurant.getAvgprice()==null){
+                restaurant.setAvgprice(0D);
+            }
+            return restaurant;
+        }).collect(Collectors.toList());
     }
 
-    @GetMapping("/restaurants/name/{name}")
+    private List<Restaurant> getRestaurent(Integer category, String name){
+        return restaurantRepository.findAllByCategoryAndNameLike(1, "%" + name + "%").stream().map(restaurant -> {
+            if (restaurant.getAvgprice()==null){
+                restaurant.setAvgprice(0D);
+            }
+            return restaurant;
+        }).collect(Collectors.toList());
+    }
+
+    @GetMapping("/restaurants/1/{name}")
     @ResponseBody
-    public List<Restaurant> findAllRestaurantsByNameLike(@PathVariable String name){
-        return restaurantRepository.findAllByNameLike("%" + name + "%");
+    public List<Restaurant> findAmerianRestaurantsByNameLike(@PathVariable String name){
+        return this.getRestaurent(1, name);
+    }
+
+    @GetMapping("/restaurants/2/{name}")
+    @ResponseBody
+    public List<Restaurant> findChineseRestaurantsByNameLike(@PathVariable String name){
+        return this.getRestaurent(2, name);
+    }
+
+    @GetMapping("/restaurants/3/{name}")
+    @ResponseBody
+    public List<Restaurant> findIndianRestaurantsByNameLike(@PathVariable String name){
+        return this.getRestaurent(3, name);
     }
 }

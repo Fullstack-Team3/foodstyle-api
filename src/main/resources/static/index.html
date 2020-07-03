@@ -13,11 +13,108 @@
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript">
+        function edit(obj) {
+            location.href = "http://localhost:8080/managerpages/restaurant_update_content.html?id="+obj.id;
+        }
+        function generateDiv(obj) {
+            var div_col = $('<div class="col-md-3"></div>');
+            var a = $('<a href="javascript:;"></a>');
+            var img = $('<img src="" alt=""/>');
+            img.attr('src', obj.photo);
+
+            img.appendTo(a);
+            var div = $('<div class="has_border"></div>');
+            var h3 = $('<h3></h3>');
+            h3.text(obj.name);
+            var h3_2 = $('<h3></h3>');
+            h3_2.text(obj.description);
+            var avgprice = $('<div class="price">Average Price <em>$</em><strong>'+ obj.avgprice +'</strong><em></em></div>');
+            h3.appendTo(div);
+            h3_2.appendTo(div);
+            avgprice.appendTo(div);
+            div.appendTo(a);
+
+
+            a.appendTo(div_col);
+
+            return div_col;
+        }
+        function generateRow() {
+            var row = $(' <div class="row"></div>');
+            return row;
+        }
+        function loadData(category){
+            restaurantCategory = category;
+            $.ajax({
+                type: "get",
+                url: "http://localhost:8080/restaurants/category/"+ category,
+                async: true,
+                contentType: 'application/json',
+                dataType: 'JSON',
+                success: function(data) {
+                    var root = $('#popularity');
+                    root.html("");
+                    var row;
+                    var index = 0;
+                    $.each(data, function (i, obj) {
+                        if (i % 4 == 0){
+                            row = generateRow();
+                        }
+                        generateDiv(obj).appendTo(row)
+                        if (i % 3 == 0){
+                            row.appendTo(root);
+                        }
+                        index = i;
+                    });
+                    if(index%3 != 0){
+                        row.appendTo(root);
+                    }
+                }
+            });
+        }
+
+        function searchRestaurant() {
+            var restaurantName = $('#searchValue').val();
+            if (restaurantName.trim() == ''){
+                return;
+            }
+            $.ajax({
+                type: "get",
+                url: "http://localhost:8080/restaurants/"+ restaurantCategory +"/"+ restaurantName,
+                async: true,
+                contentType: 'application/json',
+                dataType: 'JSON',
+                success: function(data) {
+                    var root = $('#popularity');
+                    root.html("");
+                    var row;
+                    var index = 0;
+                    $.each(data, function (i, obj) {
+                        if (i % 4 == 0){
+                            row = generateRow();
+                        }
+                        generateDiv(obj).appendTo(row)
+                        if (i % 3 == 0){
+                            row.appendTo(root);
+                        }
+                        index = i;
+                    });
+                    if(index%3 != 0){
+                        row.appendTo(root);
+                    }
+                }
+            });
+        }
+
+    </script>
+
+
 </head>
-<body>
+<body onload="loadData(1)">
     <header id="header"> 
         <div class="header_wrap">
             <div class="topbar">
@@ -25,8 +122,8 @@
                     <a href="/"><img src="customerpages/images/logo.png" height="70px" width="70px"></a>
                 </div>
                 <div class="search">
-                    <input name="" type="text" placeholder="please input the name of restaurant" class="search_input" autocomplete="off">
-                    <a href="javascript:;" class="search-button">Search</a>
+                    <input id="searchValue" name="" type="text" placeholder="please input the name of restaurant" class="search_input" autocomplete="off">
+                    <a href="" class="search-button" onclick="searchRestaurant()">Search</a>
                 </div>
 				<div class="shortcut">
                     <div id="logoutDiv" class="login_out">
@@ -102,16 +199,16 @@
                 <ul class="jx_tabs" role="tablist">
                     <li class="active" role="presentation">
                         <span></span>
-                        <a href="#Ameriacan" aria-controls="Ameriacan" role="tab" data-toggle="tab">Ameriacan Reataurant</a>
+                        <a href="#Ameriacan" onclick="loadData(1)" aria-controls="Ameriacan" role="tab" data-toggle="tab">Ameriacan Reataurant</a>
                     </li>
                     <li role="presentation">
                         <span></span>
-                        <a href="#Chinese" aria-controls="Chinese" role="tab" data-toggle="tab">Chinese Restaurant</a>
+                        <a href="#Chinese" onclick="loadData(2)" aria-controls="Chinese" role="tab" data-toggle="tab">Chinese Restaurant</a>
                     </li>
 				
                     <li role="presentation">
                         <span></span>
-                        <a href="#Indian" aria-controls="Indian" role="tab" data-toggle="tab">Indian Restaurant</a>
+                        <a href="#Indian" onclick="loadData(3)" aria-controls="Indian" role="tab" data-toggle="tab">Indian Restaurant</a>
                     </li>
                 </ul>
             </div>
@@ -119,132 +216,7 @@
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="popularity">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <a href="javascript:;">
-                                    <img src="customerpages/images/subway.jpeg" alt="">
-                                    <div class="has_border">
-										<h3>Subway</h3>
-                                        <h3>Write your own content here please</h3>
-                                        <div class="price">Average Price <em>$</em><strong>15</strong><em></em></div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-3">
-                                <a href="javascript:;">
-                                    <img src="customerpages/images/kfc.jpg" alt="">
-                                    <div class="has_border">
-										<h3>KFC</h3>
-                                        <h3>Write your own content here please</h3>
-                                        <div class="price">Average Price <em>$</em><strong>15</strong><em></em></div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-3">
-                                <a href="javascript:;">
-                                    <img src="customerpages/images/subway.jpeg" alt="">
-                                    <div class="has_border">
-										<h3>Subway</h3>
-                                        <h3>Write your own content here please</h3>
-                                        <div class="price">Average Price <em>$</em><strong>15</strong><em></em></div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-3">
-                                <a href="javascript:;">
-                                    <img src="customerpages/images/kfc.jpg" alt="">
-                                    <div class="has_border">
-										<h3>KFC</h3>
-                                        <h3>Write your own content here please</h3>
-                                        <div class="price">Average Price <em>$</em><strong>15</strong><em></em></div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-						<div class="row">
-						    <div class="col-md-3">
-						        <a href="javascript:;">
-						            <img src="customerpages/images/subway.jpeg" alt="">
-						            <div class="has_border">
-										<h3>Subway</h3>
-						                <h3>Write your own content here please</h3>
-						                <div class="price">Average Price <em>$</em><strong>15</strong><em></em></div>
-						            </div>
-						        </a>
-						    </div>
-						    <div class="col-md-3">
-						        <a href="javascript:;">
-						            <img src="customerpages/images/kfc.jpg" alt="">
-						            <div class="has_border">
-										<h3>KFC</h3>
-						                <h3>Write your own content here please</h3>
-						                <div class="price">Average Price <em>$</em><strong>15</strong><em></em></div>
-						            </div>
-						        </a>
-						    </div>
-						    <div class="col-md-3">
-						        <a href="javascript:;">
-						            <img src="customerpages/images/subway.jpeg" alt="">
-						            <div class="has_border">
-										<h3>Subway</h3>
-						                <h3>Write your own content here please</h3>
-						                <div class="price">Average Price <em>$</em><strong>15</strong><em></em></div>
-						            </div>
-						        </a>
-						    </div>
-						    <div class="col-md-3">
-						        <a href="javascript:;">
-						            <img src="customerpages/images/kfc.jpg" alt="">
-						            <div class="has_border">
-										<h3>KFC</h3>
-						                <h3>Write your own content here please</h3>
-						                <div class="price">Average Price <em>$</em><strong>15</strong><em></em></div>
-						            </div>
-						        </a>
-						    </div>
-						</div>
-						<div class="row">
-						    <div class="col-md-3">
-						        <a href="javascript:;">
-						            <img src="customerpages/images/subway.jpeg" alt="">
-						            <div class="has_border">
-										<h3>Subway</h3>
-						                <h3>Write your own content here please</h3>
-						                <div class="price">Average Price <em>$</em><strong>15</strong><em></em></div>
-						            </div>
-						        </a>
-						    </div>
-						    <div class="col-md-3">
-						        <a href="javascript:;">
-						            <img src="customerpages/images/kfc.jpg" alt="">
-						            <div class="has_border">
-										<h3>KFC</h3>
-						                <h3>Write your own content here please</h3>
-						                <div class="price">Average Price <em>$</em><strong>15</strong><em></em></div>
-						            </div>
-						        </a>
-						    </div>
-						    <div class="col-md-3">
-						        <a href="javascript:;">
-						            <img src="customerpages/images/subway.jpeg" alt="">
-						            <div class="has_border">
-										<h3>Subway</h3>
-						                <h3>Write your own content here please</h3>
-						                <div class="price">Average Price <em>$</em><strong>15</strong><em></em></div>
-						            </div>
-						        </a>
-						    </div>
-						    <div class="col-md-3">
-						        <a href="javascript:;">
-						            <img src="customerpages/images/kfc.jpg" alt="">
-						            <div class="has_border">
-										<h3>KFC</h3>
-						                <h3>Write your own content here please</h3>
-						                <div class="price">Average Price <em>$</em><strong>15</strong><em></em></div>
-						            </div>
-						        </a>
-						    </div>
-						</div>						
+
 					</div>
                 </div>
             </div>
