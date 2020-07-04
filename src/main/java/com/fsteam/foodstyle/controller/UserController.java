@@ -1,24 +1,27 @@
 package com.fsteam.foodstyle.controller;
 
 import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.fsteam.foodstyle.domain.Restaurant;
 import com.fsteam.foodstyle.domain.User;
+import com.fsteam.foodstyle.repository.RestaurantRepository;
 import com.fsteam.foodstyle.repository.UserRepository;
 import com.fsteam.foodstyle.vm.LoginVM;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Controller
 public class UserController {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private RestaurantRepository restaurantRepository;
 
     @GetMapping("/managers")
     @ResponseBody
@@ -26,16 +29,47 @@ public class UserController {
         return userRepository.findAllByUserType(1);
     }
 
-    @GetMapping("/managers-save")
+    @PostMapping("/managers")
     @ResponseBody
-    public User createManager(){
-        User user = new User();
-        user.setEmail("longfei@email.com");
-        user.setFirstname("Longfei");
-        user.setLastname("Wang");
-        user.setPassword("123456");
+    public User createManager(@RequestBody User user){
+        user.setUserType(1);
+        if (user.getRestaurantid() != null) {
+            Optional<Restaurant> optRes = restaurantRepository.findById(user.getRestaurantid());
+            if (optRes != null && optRes.isPresent()){
+                user.setRestaurantname(optRes.get().getName());
+            }
+        }
+        return userRepository.save(user);
+    }
+
+    @PutMapping("/managers")
+    @ResponseBody
+    public User updateManager(@RequestBody User user){
+        if (user.getId() == null){
+            System.out.println("User id cannot be null.");
+            return null;
+        }
+        if (user.getRestaurantid() != null) {
+            Optional<Restaurant> optRes = restaurantRepository.findById(user.getRestaurantid());
+            if (optRes != null && optRes.isPresent()){
+                user.setRestaurantname(optRes.get().getName());
+            }
+        }
         user.setUserType(1);
         return userRepository.save(user);
+    }
+
+    @GetMapping("/managers/{id}")
+    @ResponseBody
+    public User createManager(@PathVariable Long id){
+        return userRepository.findById(id).get();
+    }
+
+    @DeleteMapping("/managers/{id}")
+    @ResponseBody
+    public Long deleteManager(@PathVariable Long id){
+        userRepository.deleteById(id);
+        return id;
     }
 
     @PostMapping("/users-register")

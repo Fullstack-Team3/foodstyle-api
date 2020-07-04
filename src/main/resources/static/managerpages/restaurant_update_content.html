@@ -41,7 +41,7 @@
                 obj[field.name] = field.value;
             });
             $.ajax({
-                type: "post",
+                type: "put",
                 url: "http://localhost:8080/restaurants",
                 async: true,
                 contentType: 'application/json',

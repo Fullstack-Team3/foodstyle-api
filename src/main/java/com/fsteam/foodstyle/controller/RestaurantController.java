@@ -36,6 +36,10 @@ public class RestaurantController {
     @PutMapping("/restaurants")
     @ResponseBody
     public Restaurant updateRestaurant(@RequestBody Restaurant restaurant){
+        if (restaurant.getId() == null){
+            System.out.println("Restaurant id cannot be null.");
+            return null;
+        }
         return restaurantRepository.save(restaurant);
     }
 
