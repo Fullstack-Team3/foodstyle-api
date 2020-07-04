@@ -12,11 +12,57 @@
     <script src="dist/js/jquery-2.1.0.min.js"></script>
     
     <script src="dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function loadData(){
+            var urlParams = new URLSearchParams(location.search);
+            var id = urlParams.get('id');
+            $.ajax({
+                type: "get",
+                url: "http://localhost:8080/food/"+id,
+                async: true,
+                contentType: 'application/json',
+                dataType: 'JSON',
+                success: function(data) {
+                    $('#id').val(data.id);
+                    $('#name').val(data.name);
+                    $('#photo').val(data.photo);
+                    $('#price').val(data.price);
+                    $('#description').val(data.description);
+
+                    $('#sold').val(data.sold);
+                    $('#rating').val(data.rating);
+                }
+            })
+        }
+
+        function submitForm(){
+            var fields = $('#form').serializeArray();
+            var obj = {};
+            $.each(fields, function(index, field) {
+                obj[field.name] = field.value;
+            });
+            $.ajax({
+                type: "put",
+                url: "http://localhost:8080/food",
+                async: true,
+                contentType: 'application/json',
+                dataType: 'JSON',
+                data: JSON.stringify(obj),
+                success: function(data) {
+                    alert("Updated successfully!");
+                    location.href = "http://localhost:8080/managerpages/food_list_content.html"
+                }
+            });
+        }
+    </script>
 </head>
-<body>
+<body onload="loadData()">
 <div class="container">
     <center><h3>Update Food</h3></center>
-    <form action="" method="post">
+    <form id="form" action="" method="post">
+        <input type="hidden" id="id" name="id"/>
+        <input type="hidden" id="sold" name="sold"/>
+        <input type="hidden" id="rating" name="rating"/>
         <div class="form-group">
             <label for="name">Name：</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Please input the name of the food">
@@ -33,13 +79,12 @@
 		
 		<div class="form-group">
 		    <label for="description">Description：</label>
-		    <input type="text" class="form-control" id="Description" name="Description" placeholder="Please input the description of the food"/>
+		    <input type="text" class="form-control" id="description" name="description" placeholder="Please input the description of the food"/>
 		</div>
 
         <div class="form-group" style="text-align: center">
-            <input class="btn btn-primary" type="submit" value="Summit" />
+            <input class="btn btn-primary" type="button" value="Summit" onclick="submitForm()"/>
             <input class="btn btn-default" type="reset" value="Reset" />
-            <input class="btn btn-default" type="button" value="Back" />
         </div>
     </form>
 </div>

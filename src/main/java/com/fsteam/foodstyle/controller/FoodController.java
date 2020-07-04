@@ -27,6 +27,7 @@ public class FoodController {
     @PostMapping("/food")
     @ResponseBody
     public Food createFood(@RequestBody Food food){
+        food.setRestaurantid(1L);
         return foodRepository.save(food);
     }
 
@@ -50,6 +51,7 @@ public class FoodController {
             System.out.println("Food id cannot be null.");
             return null;
         }
+        food.setRestaurantid(1L);
         return foodRepository.save(food);
     }
 
@@ -63,5 +65,11 @@ public class FoodController {
     @ResponseBody
     public List<Food> findFoodsByRestaurantAndNameLike(@RequestBody FoodVM foodVM){
         return foodRepository.findAllByRestaurantidAndNameLike(foodVM.getRestaurantId(),"%" + foodVM.getFoodName() + "%");
+    }
+
+    @GetMapping("/food/restaurant/{id}")
+    @ResponseBody
+    public List<Food> findAllFoodsByRestaurantId(@PathVariable Long id){
+        return foodRepository.findAllByRestaurantid(id);
     }
 }

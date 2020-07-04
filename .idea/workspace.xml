@@ -20,23 +20,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cf1ef25-f0af-48f4-9116-dbfaef166ee2" name="Default Changelist" comment="update structure of frontend pages">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/vm/FoodVM.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/domain/Manager.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fsteam/foodstyle/controller/UserController.class" afterPath="$PROJECT_DIR$/target/classes/com/fsteam/foodstyle/controller/UserController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/customerpages/js/food_list/food_list2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/managerpages/plugins/bootstrap/js/bootstrap.bundle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/managerpages/plugins/bootstrap/js/bootstrap.bundle.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/managerpages/plugins/bootstrap/js/bootstrap.bundle.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/managerpages/plugins/bootstrap/js/bootstrap.bundle.min.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/managerpages/plugins/bootstrap/js/bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/managerpages/plugins/bootstrap/js/bootstrap.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/managerpages/plugins/bootstrap/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/managerpages/plugins/bootstrap/js/bootstrap.min.js.map" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/fsteam/foodstyle/domain/Manager.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fsteam/foodstyle/controller/FoodController.class" afterPath="$PROJECT_DIR$/target/classes/com/fsteam/foodstyle/controller/FoodController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fsteam/foodstyle/domain/Food.class" afterPath="$PROJECT_DIR$/target/classes/com/fsteam/foodstyle/domain/Food.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fsteam/foodstyle/domain/Restaurant.class" afterPath="$PROJECT_DIR$/target/classes/com/fsteam/foodstyle/domain/Restaurant.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fsteam/foodstyle/repository/FoodRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/fsteam/foodstyle/repository/FoodRepository.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/controller/FoodController.java" afterPath="$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/controller/FoodController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/domain/Food.java" afterPath="$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/domain/Food.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/domain/Restaurant.java" afterPath="$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/domain/Restaurant.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/repository/FoodRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/repository/FoodRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/managerpages/food_add_content.html" afterPath="$PROJECT_DIR$/src/main/resources/static/managerpages/food_add_content.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/managerpages/food_list_content.html" afterPath="$PROJECT_DIR$/src/main/resources/static/managerpages/food_list_content.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/managerpages/food_update_content.html" afterPath="$PROJECT_DIR$/src/main/resources/static/managerpages/food_update_content.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_update_content.html" afterPath="$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_update_content.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/managerpages/manager_add_content.html" afterPath="$PROJECT_DIR$/target/classes/static/managerpages/manager_add_content.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/customerpages/food_list.html" afterPath="$PROJECT_DIR$/src/main/resources/static/customerpages/food_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/managerpages/food_add.html" afterPath="$PROJECT_DIR$/src/main/resources/static/managerpages/food_add.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/managerpages/food_list.html" afterPath="$PROJECT_DIR$/src/main/resources/static/managerpages/food_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/managerpages/index.html" afterPath="$PROJECT_DIR$/src/main/resources/static/managerpages/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/managerpages/manager_add.html" afterPath="$PROJECT_DIR$/src/main/resources/static/managerpages/manager_add.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/managerpages/manager_list.html" afterPath="$PROJECT_DIR$/src/main/resources/static/managerpages/manager_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_add.html" afterPath="$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_add.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_list.html" afterPath="$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/customerpages/food_list.html" afterPath="$PROJECT_DIR$/target/classes/static/customerpages/food_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/managerpages/food_add.html" afterPath="$PROJECT_DIR$/target/classes/static/managerpages/food_add.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/managerpages/food_add_content.html" afterPath="$PROJECT_DIR$/target/classes/static/managerpages/food_add_content.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/managerpages/food_list.html" afterPath="$PROJECT_DIR$/target/classes/static/managerpages/food_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/managerpages/food_list_content.html" afterPath="$PROJECT_DIR$/target/classes/static/managerpages/food_list_content.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/managerpages/food_update_content.html" afterPath="$PROJECT_DIR$/target/classes/static/managerpages/food_update_content.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/managerpages/index.html" afterPath="$PROJECT_DIR$/target/classes/static/managerpages/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/managerpages/manager_add.html" afterPath="$PROJECT_DIR$/target/classes/static/managerpages/manager_add.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/managerpages/manager_list.html" afterPath="$PROJECT_DIR$/target/classes/static/managerpages/manager_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/managerpages/manager_list_content.html" afterPath="$PROJECT_DIR$/target/classes/static/managerpages/manager_list_content.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/managerpages/manager_update_content.html" afterPath="$PROJECT_DIR$/target/classes/static/managerpages/manager_update_content.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/managerpages/restaurant_update_content.html" afterPath="$PROJECT_DIR$/target/classes/static/managerpages/restaurant_update_content.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/managerpages/restaurant_add.html" afterPath="$PROJECT_DIR$/target/classes/static/managerpages/restaurant_add.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/managerpages/restaurant_list.html" afterPath="$PROJECT_DIR$/target/classes/static/managerpages/restaurant_list.html" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,49 +67,86 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="food_add_content.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/food_add_content.html">
+      <file leaf-file-name="FoodController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/controller/FoodController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-135">
-              <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+            <state relative-caret-position="450">
+              <caret line="52" column="9" lean-forward="false" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FoodController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/controller/FoodController.java">
+      <file leaf-file-name="food_list.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/customerpages/food_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="758">
-              <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state relative-caret-position="316">
+              <caret line="37" column="20" lean-forward="false" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#736#737#0" expanded="true" />
-                <element signature="e#799#800#0" expanded="true" />
-                <element signature="e#896#897#0" expanded="true" />
-                <element signature="e#944#945#0" expanded="true" />
-                <element signature="e#1623#1624#0" expanded="true" />
-                <element signature="e#1670#1671#0" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#a#0;n#div#0;n#li#0;n#ul#0;n#nav#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#a#1;n#div#0;n#li#0;n#ul#0;n#nav#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#footer#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="food_list_content.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/food_list_content.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2438">
-              <caret line="64" column="44" lean-forward="false" selection-start-line="64" selection-start-column="44" selection-end-line="64" selection-end-column="44" />
+            <state relative-caret-position="1215">
+              <caret line="34" column="34" lean-forward="true" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+              <folding>
+                <element signature="n#div#2;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#dd#0;n#dl#5;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1593841832564" expanded="true" signature="1536:1545" ph="..." />
+                <marker date="1593841832564" expanded="true" signature="1642:1651" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="922" column="0" lean-forward="false" selection-start-line="922" selection-start-column="0" selection-end-line="922" selection-end-column="0" />
+              <folding>
+                <element signature="n#ul#0;n#li#1;n#ul#0;n#nav#0;n#div#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="food_list2.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/customerpages/js/food_list/food_list2.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="38" column="32" lean-forward="false" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+              <folding>
+                <marker date="1593844034391" expanded="true" signature="789:798" ph="..." />
+                <marker date="1593844034391" expanded="true" signature="895:904" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="manager_add.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/manager_add.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="food_update_content.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/food_update_content.html">
+      <file leaf-file-name="restaurant_list_content.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_list_content.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+            <state relative-caret-position="315">
+              <caret line="7" column="61" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -114,6 +170,12 @@
       <find>update</find>
       <find>Restaurant</find>
       <find>restaurant</find>
+      <find>3</find>
+      <find>edit</find>
+      <find>Data</find>
+      <find>alert</find>
+      <find>food_items</find>
+      <find>food_list</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -131,24 +193,15 @@
         <option value="$PROJECT_DIR$/src/main/resources/static/customerpages/css/login.css" />
         <option value="$PROJECT_DIR$/src/main/resources/static/customerpages/index_restaurant_list.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_add_content.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/food_add.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/food_list.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/food_update.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/index.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/manager_add.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/manager_update.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_add.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_list.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_update.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_list_content.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/customerpages/index_restaurant_list_loggedin.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/customerpages/login.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/customerpages/register.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/customerpages/food_detail.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/customerpages/food_list.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/repository/RestaurantRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/index.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/manager_list.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/controller/RestaurantController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/manager_list_content.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/controller/UserController.java" />
@@ -159,10 +212,21 @@
         <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_update_content.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/vm/FoodVM.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/repository/FoodRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/controller/FoodController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/food_add_content.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/food_list_content.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/food_update_content.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/index.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_list.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/customerpages/js/food_list/food_list.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/controller/FoodController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/food_add.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/manager_add.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/manager_list.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_add.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/customerpages/js/food_list/food_list2.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/managerpages/food_list.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/customerpages/food_list.html" />
       </list>
     </option>
   </component>
@@ -248,24 +312,6 @@
               <item name="foodstyle-api" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="foodstyle" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="foodstyle-api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="foodstyle-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="foodstyle" type="462c0819:PsiDirectoryNode" />
-              <item name="vm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="foodstyle-api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="foodstyle-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -292,7 +338,8 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="managerpages" type="462c0819:PsiDirectoryNode" />
+              <item name="customerpages" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -340,6 +387,7 @@
       <recent name="com.fsteam.foodstyle.domain" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\work\StemAway\foodstyle-api\src\main\resources\static\managerpages\plugins" />
       <recent name="D:\work\StemAway\foodstyle-api\src\main\resources\static" />
     </key>
   </component>
@@ -398,6 +446,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-16" y="-16" width="3232" height="1744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -407,7 +456,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3519669" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18219462" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -556,14 +605,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="253" column="0" lean-forward="false" selection-start-line="253" selection-start-column="0" selection-end-line="253" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/manager_update.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
@@ -572,34 +613,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="257" column="32" lean-forward="false" selection-start-line="257" selection-start-column="32" selection-end-line="257" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/food_update.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
           <caret line="272" column="28" lean-forward="false" selection-start-line="272" selection-start-column="22" selection-end-line="272" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/food_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="253" column="0" lean-forward="false" selection-start-line="253" selection-start-column="0" selection-end-line="253" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/food_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="253" column="0" lean-forward="false" selection-start-line="253" selection-start-column="0" selection-end-line="253" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -636,14 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/customerpages/food_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="17" column="30" lean-forward="false" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/customerpages/review.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -676,44 +685,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="35" column="29" lean-forward="true" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
-          <folding>
-            <element signature="n#style#0;n#dd#0;n#dl#5;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/manager_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="202" column="19" lean-forward="true" selection-start-line="202" selection-start-column="19" selection-end-line="202" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/manager_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3556">
-          <caret line="273" column="5" lean-forward="true" selection-start-line="273" selection-start-column="5" selection-end-line="273" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/manager_list_content.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1665">
           <caret line="108" column="12" lean-forward="true" selection-start-line="108" selection-start-column="12" selection-end-line="108" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2026">
-          <caret line="258" column="20" lean-forward="true" selection-start-line="258" selection-start-column="20" selection-end-line="258" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -774,16 +749,16 @@
         <state relative-caret-position="720">
           <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
           <folding>
-            <element signature="e#620#621#0" expanded="true" />
-            <element signature="e#647#648#0" expanded="true" />
-            <element signature="e#688#689#0" expanded="true" />
-            <element signature="e#720#721#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-            <element signature="e#782#783#0" expanded="true" />
-            <element signature="e#826#827#0" expanded="true" />
-            <element signature="e#862#863#0" expanded="true" />
-            <element signature="e#1074#1075#0" expanded="true" />
-            <element signature="e#1106#1107#0" expanded="true" />
+            <element signature="e#620#621#0" expanded="false" />
+            <element signature="e#647#648#0" expanded="false" />
+            <element signature="e#688#689#0" expanded="false" />
+            <element signature="e#720#721#0" expanded="false" />
+            <element signature="e#753#754#0" expanded="false" />
+            <element signature="e#782#783#0" expanded="false" />
+            <element signature="e#826#827#0" expanded="false" />
+            <element signature="e#862#863#0" expanded="false" />
+            <element signature="e#1074#1075#0" expanded="false" />
+            <element signature="e#1106#1107#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -838,22 +813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/controller/FoodController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="758">
-          <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#736#737#0" expanded="true" />
-            <element signature="e#799#800#0" expanded="true" />
-            <element signature="e#896#897#0" expanded="true" />
-            <element signature="e#944#945#0" expanded="true" />
-            <element signature="e#1623#1624#0" expanded="true" />
-            <element signature="e#1670#1671#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_add_content.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-412">
@@ -862,28 +821,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_update_content.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="65" column="56" lean-forward="true" selection-start-line="63" selection-start-column="8" selection-end-line="65" selection-end-column="56" />
-          <folding>
-            <element signature="n#script#2;n#head#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/food_add_content.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-135">
           <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_list_content.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="91" column="44" lean-forward="true" selection-start-line="82" selection-start-column="23" selection-end-line="91" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -898,9 +839,190 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/food_update_content.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+        <state relative-caret-position="137">
+          <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="56" selection-end-column="13" />
+          <folding>
+            <element signature="n#script#2;n#head#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/customerpages/js/food_list/hot_foods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="62" column="1" lean-forward="true" selection-start-line="62" selection-start-column="1" selection-end-line="62" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <marker date="1593723957496" expanded="true" signature="1256:1554" ph="..." />
+            <marker date="1593723957496" expanded="true" signature="1358:1540" ph="..." />
+            <marker date="1593723957496" expanded="true" signature="1413:1475" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/customerpages/js/food_list/sticky_bar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/customerpages/js/food_list/food_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="84" column="43" lean-forward="false" selection-start-line="84" selection-start-column="33" selection-end-line="84" selection-end-column="43" />
+          <folding>
+            <marker date="1593839500615" expanded="true" signature="81:495" ph="..." />
+            <marker date="1593839500615" expanded="true" signature="162:258" ph="..." />
+            <marker date="1593839500615" expanded="true" signature="290:481" ph="..." />
+            <marker date="1593839500615" expanded="true" signature="328:396" ph="..." />
+            <marker date="1593839500615" expanded="true" signature="2676:3008" ph="..." />
+            <marker date="1593839500615" expanded="true" signature="2706:2835" ph="..." />
+            <marker date="1593839500615" expanded="true" signature="2864:2981" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/customerpages/images/food_1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/food_add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="5" column="9" lean-forward="true" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_update_content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="801">
+          <caret line="65" column="56" lean-forward="true" selection-start-line="63" selection-start-column="8" selection-end-line="65" selection-end-column="56" />
+          <folding>
+            <element signature="n#script#2;n#head#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/manager_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/manager_add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/restaurant_list_content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="7" column="61" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/customerpages/js/food_list/food_list2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="38" column="32" lean-forward="false" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+          <folding>
+            <marker date="1593844034391" expanded="true" signature="789:798" ph="..." />
+            <marker date="1593844034391" expanded="true" signature="895:904" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/food_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/controller/FoodController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="52" column="9" lean-forward="false" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="922" column="0" lean-forward="false" selection-start-line="922" selection-start-column="0" selection-end-line="922" selection-end-column="0" />
+          <folding>
+            <element signature="n#ul#0;n#li#1;n#ul#0;n#nav#0;n#div#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/managerpages/plugins/bootstrap/js/bootstrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1215">
+          <caret line="34" column="34" lean-forward="true" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+          <folding>
+            <element signature="n#div#2;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#dd#0;n#dl#5;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1593841832564" expanded="true" signature="1536:1545" ph="..." />
+            <marker date="1593841832564" expanded="true" signature="1642:1651" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/customerpages/food_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="37" column="20" lean-forward="false" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#a#0;n#div#0;n#li#0;n#ul#0;n#nav#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#a#1;n#div#0;n#li#0;n#ul#0;n#nav#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#footer#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
