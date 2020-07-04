@@ -27,6 +27,26 @@ public class Restaurant {
 
     private Integer category;
 
+    private Integer sold;
+
+    private Double rating;
+
+    public Integer getSold() {
+        return sold;
+    }
+
+    public void setSold(Integer sold) {
+        this.sold = sold;
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
+    }
+
     public Long getId() {
         return id;
     }

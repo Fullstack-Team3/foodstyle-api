@@ -12,11 +12,50 @@
     <script src="dist/js/jquery-2.1.0.min.js"></script>
     
     <script src="dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function submitForm(){
+            var fields = $('#form').serializeArray();
+            var obj = {};
+            $.each(fields, function(index, field) {
+                obj[field.name] = field.value;
+            });
+            $.ajax({
+                type: "post",
+                url: "http://localhost:8080/managers",
+                async: true,
+                contentType: 'application/json',
+                dataType: 'JSON',
+                data: JSON.stringify(obj),
+                success: function(data) {
+                    alert("Created successfully!");
+                    location.href = "http://localhost:8080/managerpages/manager_list_content.html"
+                }
+            });
+        }
+        function loadRestaurant() {
+            $.ajax({
+                type: "get",
+                url: "http://localhost:8080/restaurants",
+                async: true,
+                contentType: 'application/json',
+                dataType: 'JSON',
+                success: function(data) {
+                    var restaurant = $('#restaurant');
+                    $.each(data, function (i, obj) {
+                        var option = $('<option value=""></option>');
+                        option.attr('value', obj.id);
+                        option.text(obj.name);
+                        option.appendTo(restaurant);
+                    })
+                }
+            });
+        }
+    </script>
 </head>
-<body>
+<body onload="loadRestaurant()">
 <div class="container">
     <center><h3>Add New Manager</h3></center>
-    <form action="" method="post">
+    <form id="form" action="" method="post">
         <div class="form-group">
             <label for="firstname">First Name：</label>
             <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Please input your first name">
@@ -48,17 +87,18 @@
         </div>
 		<div class="form-group">
 		    <label for="password">Password：</label>
-		    <input type="text" class="form-control" id="password" name="password" placeholder="Please input the password"/>
+		    <input type="password" class="form-control" id="password" name="password" placeholder="Please input the password"/>
 		</div>
 		<div class="form-group">
-		    <label for="restaurant">Restaurant ID：</label>
-		    <input type="text" class="form-control" id="restaurant" name="restaurant" placeholder="Please input the restaurant ID"/>
+		    <label for="restaurant">Restaurant：</label>
+            <select name="restaurantid" class="form-control" id="restaurant">
+                <option value="">Please select the restaurant</option>
+            </select>
 		</div>
 
         <div class="form-group" style="text-align: center">
-            <input class="btn btn-primary" type="submit" value="Summit" />
+            <input class="btn btn-primary" type="button" value="Summit" onclick="submitForm()"/>
             <input class="btn btn-default" type="reset" value="Reset" />
-            <input class="btn btn-default" type="button" value="Back" />
         </div>
     </form>
 </div>

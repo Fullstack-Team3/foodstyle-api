@@ -30,6 +30,8 @@
                     $('#category').val(data.category);
                     $('#photo').val(data.photo);
                     $('#phone').val(data.phone);
+                    $('#sold').val(data.sold);
+                    $('#rating').val(data.rating);
                 }
             })
         }
@@ -41,7 +43,7 @@
                 obj[field.name] = field.value;
             });
             $.ajax({
-                type: "post",
+                type: "put",
                 url: "http://localhost:8080/restaurants",
                 async: true,
                 contentType: 'application/json',
@@ -60,6 +62,8 @@
     <center><h3>Update Restaurant</h3></center>
     <form id="form" action="" method="post">
         <input type="hidden" id="id" name="id"/>
+        <input type="hidden" id="sold" name="sold"/>
+        <input type="hidden" id="rating" name="rating"/>
         <div class="form-group">
             <label for="name">Name：</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Please input the name of the restaurant">
