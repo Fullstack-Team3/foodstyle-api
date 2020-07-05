@@ -1,7 +1,10 @@
 package com.fsteam.foodstyle.controller;
 
+import com.fsteam.foodstyle.NumberUtil;
 import com.fsteam.foodstyle.domain.Food;
+import com.fsteam.foodstyle.domain.Restaurant;
 import com.fsteam.foodstyle.domain.User;
+import com.fsteam.foodstyle.repository.RestaurantRepository;
 import com.fsteam.foodstyle.vm.FoodVM;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +19,8 @@ import java.util.stream.Collectors;
 public class FoodController {
     @Autowired
     private FoodRepository foodRepository; // Added
+    @Autowired
+    private RestaurantRepository restaurantRepository;
 
     // Add function to retrieve food data
     @GetMapping("/food-list")
@@ -27,8 +32,16 @@ public class FoodController {
     @PostMapping("/food")
     @ResponseBody
     public Food createFood(@RequestBody Food food){
-        food.setRestaurantid(1L);
-        return foodRepository.save(food);
+        if (food.getRestaurantid() == null){
+            food.setRestaurantid(1L);
+        }
+        food.setRestaurantid(food.getRestaurantid());
+        Food f = foodRepository.save(food);
+        Double avgPrice = foodRepository.findAvgPriceByRestaurantId(food.getRestaurantid());
+        Restaurant restaurant = restaurantRepository.findById(food.getRestaurantid()).get();
+        restaurant.setAvgprice(NumberUtil.getDecimal(avgPrice,2));
+        restaurantRepository.save(restaurant);
+        return f;
     }
 
     @GetMapping("/food/{id}")
@@ -51,7 +64,9 @@ public class FoodController {
             System.out.println("Food id cannot be null.");
             return null;
         }
-        food.setRestaurantid(1L);
+        if (food.getRestaurantid() == null){
+            food.setRestaurantid(1L);
+        }
         return foodRepository.save(food);
     }
 
@@ -71,5 +86,11 @@ public class FoodController {
     @ResponseBody
     public List<Food> findAllFoodsByRestaurantId(@PathVariable Long id){
         return foodRepository.findAllByRestaurantid(id);
+    }
+
+    @GetMapping("/food/top/{restaurantId}")
+    @ResponseBody
+    public List<Food> findTop5FoodsByRestaurantId(@PathVariable Long restaurantId){
+        return foodRepository.findTop5ByRestaurantidOrderBySoldDesc(restaurantId);
     }
 }

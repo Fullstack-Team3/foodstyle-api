@@ -86,6 +86,7 @@ public class UserController {
         Map<String, Object> map = new HashMap<>();
         if (user != null){
             map.put("success", 1);
+            map.put("userid", user.getId());
             map.put("username", user.getFirstname());
         }else {
             map.put("success", 0);

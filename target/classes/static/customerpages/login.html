@@ -33,6 +33,7 @@
                 data: JSON.stringify(obj),
                 success: function(data) {
                     if (data.success == 1){
+                        window.localStorage.setItem('userid', data.userid);
                         window.localStorage.setItem('username', data.username);
                         window.location = "http://localhost:8080";
                     }else{

@@ -1,20 +1,28 @@
-/**
- <li>
-     <div class="img"><img src="images/food_1.png" alt=""></div>
-     <div class="text1">
-         <p>Food Name Food Name Food Name</p>
-         <p>description</p>
-     </div>
-     <div class="price">
-         <p class="price_num">
-             <span>$</span>
-             <span>29</span>
-         </p>
-         <p><a href="food_detail.html">view detail</a></p>
-     </div>
- </li>
- */
-function generateLi(obj, restaurantName) {
+function addCart(obj) {
+    var foodId = obj.id;
+    var userId = window.localStorage.getItem('userid');
+    if (!userId){
+        alert('You have not logged in!');
+        return;
+    }
+    var obj = {
+        userid: userId,
+        foodid: foodId
+    };
+    $.ajax({
+        type: "post",
+        url: "http://localhost:8080/carts/details",
+        async: true,
+        contentType: 'application/json',
+        dataType: 'JSON',
+        data: JSON.stringify(obj),
+        success: function(data) {
+            $('#'+foodId).text('Add to Cart  [' + data + ']');
+            loadCartList();
+        }
+    });
+}
+function generateLi(obj, foodName) {
     var li = $('<li></li>');
     var div_1 = $('<div class="img"></div>');
     var img = $('<img src=""/>');
@@ -23,19 +31,18 @@ function generateLi(obj, restaurantName) {
 
     var div_2 = $('<div class="text1"></div>');
     var p_name = $('<p></p>');
-    if (restaurantName){
-        p_name.html(obj.name.replace(restaurantName.toUpperCase(),'<span style="color:red">'+ restaurantName.toUpperCase() +'</span>').replace(restaurantName.toLowerCase(),'<span style="color:red">'+ restaurantName.toLowerCase() +'</span>'));
-    }else {
-        p_name.text(obj.name);
-    }
+    p_name.text(obj.name);
+
     var p_des = $('<p>'+ obj.description +'</p>');
     p_name.appendTo(div_2);
+    $('<br/>').appendTo(div_2);
     p_des.appendTo(div_2);
 
     var div_3 = $('<div class="price"></div>');
-    var p_price = $('<p class="price_num"><span>$</span><span>29</span></p>');
+    var p_price = $('<p class="price_num"><span>$</span><span>'+ obj.price +'</span></p>');
     var p_detail = $('<p></p>');
-    var a_detail = $('<a class="btn btn-primary">Add to Cart</a>');
+    var a_detail = $('<a class="btn btn-primary" onclick="addCart(this)" style="">Add to Cart</a>');
+    a_detail.attr('id', obj.id);
     a_detail.appendTo(p_detail);
     p_price.appendTo(div_3);
     p_detail.appendTo(div_3);
@@ -46,61 +53,50 @@ function generateLi(obj, restaurantName) {
 
     return li;
 }
-
+function renderElements(data, foodName) {
+    var root = $('#food_list');
+    root.html("");
+    var ul = $('<ul></ul>');
+    $.each(data, function (i, obj) {
+        generateLi(obj, foodName).appendTo(ul)
+    });
+    ul.appendTo(root);
+}
 function loadData(){
     var urlParams = new URLSearchParams(location.search);
-    var id = urlParams.get('id');
+    restId = urlParams.get('id');
     var restaurantName = urlParams.get('restaurantName');
     $('#restaurantName').text(restaurantName);
     $.ajax({
         type: "get",
-        url: "http://localhost:8080/food/restaurant/"+id,
+        url: "http://localhost:8080/food/restaurant/"+restId,
         async: true,
         contentType: 'application/json',
         dataType: 'JSON',
         success: function(data) {
-            var root = $('#food_list');
-            root.html("");
-            var ul = $('<ul></ul>');
-            $.each(data, function (i, obj) {
-
-                generateLi(obj).appendTo(ul)
-
-            });
-            ul.appendTo(root);
+            renderElements(data);
         }
-    })
+    });
 }
 
 function searchFood() {
-    var restaurantName = $('#searchValue').val();
-    if (restaurantName.trim() == ''){
+    var foodName = $('#searchValue').val();
+    if (foodName.trim() == ''){
         return;
     }
+    var obj = {
+        restaurantId: restId,
+        foodName: foodName
+    };
     $.ajax({
-        type: "get",
-        url: "http://localhost:8080/restaurants/"+ restaurantCategory +"/"+ restaurantName,
+        type: "post",
+        url: "http://localhost:8080/food/search",
         async: true,
         contentType: 'application/json',
         dataType: 'JSON',
+        data: JSON.stringify(obj),
         success: function(data) {
-            var root = $('#popularity');
-            root.html("");
-            var row;
-            var index = 0;
-            $.each(data, function (i, obj) {
-                if (i % 4 == 0){
-                    row = generateRow();
-                }
-                generateDiv(obj, restaurantName).appendTo(row)
-                if (i % 3 == 0){
-                    row.appendTo(root);
-                }
-                index = i;
-            });
-            if(index%3 != 0){
-                row.appendTo(root);
-            }
+            renderElements(data, foodName);
         }
     });
 }

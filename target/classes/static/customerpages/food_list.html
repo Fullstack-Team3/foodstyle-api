@@ -15,17 +15,19 @@
 
     <script src="js/jquery-2.1.0.min.js"></script>
 	<script src="../managerpages/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="https://js.stripe.com/v3/"></script>
 
-	<script src="js/food_list/food_list2.js"></script>
+	<script src="js/food_list/food_list2.js?a=new Date(2)"></script>
+	<script src="js/cart.js"></script>
 </head>
-<body onload="loadData()">
+<body onload="loadData();loadCartList();">
 	<div class="topbar1" style="z-index: 99999;margin-top: 10px;">
 		<div class="logo">
 			<a href="/"><img src="images/logo.png" height="70px" width="70px"></a>
 		</div>
 		<div class="search">
-			<input name="" type="text" placeholder="please input the name of food" class="search_input" autocomplete="off">
-			<a href="javascript:;" class="search-button">Search</a>
+			<input id="searchValue" name="" type="text" placeholder="please input the name of food" class="search_input" autocomplete="off">
+			<a href="javascript: void(0);" class="search-button" onclick="searchFood()">Search</a>
 		</div>
 
 		<div class="shortcut">
@@ -33,50 +35,18 @@
 				<nav class="main-header navbar navbar-expand navbar-white navbar-light">
 					<!-- Right navbar links -->
 					<ul class="navbar-nav ml-auto">
-						<!-- Messages Dropdown Menu -->
+						<!-- Shopping Cart Dropdown Menu -->
 						<li class="nav-item dropdown">
 							<a class="nav-link" data-toggle="dropdown" href="#">
 								<i class="fa fa-shopping-cart"></i>
-								<span class="badge badge-danger navbar-badge">2</span>
+								<span id="foodCount" class="badge badge-danger navbar-badge">0</span>
 							</a>
-							<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-								<a href="#" class="dropdown-item">
-									<!-- Message Start -->
-									<div class="media">
-										<img src="../managerpages/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-										<div class="media-body">
-											<h3 class="dropdown-item-title">
-												Brad Diesel
-												<span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-											</h3>
-											<p class="text-sm">I love the sauce.</p>
-											<p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-										</div>
-									</div>
-									<!-- Message End -->
-								</a>
-								<div class="dropdown-divider"></div>
-								<a href="#" class="dropdown-item">
-									<!-- Message Start -->
-									<div class="media">
-										<img src="../managerpages/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-										<div class="media-body">
-											<h3 class="dropdown-item-title">
-												John Pierce
-												<span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-											</h3>
-											<p class="text-sm">This food is too bad!</p>
-											<p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-										</div>
-									</div>
-									<!-- Message End -->
-								</a>
-								<div class="dropdown-divider"></div>
 
-								<a href="#" class="dropdown-item dropdown-footer">Checkout</a>
+							<div id="cart_list" class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+
 							</div>
 						</li>
-						<!-- Notifications Dropdown Menu -->
+						<!-- Shopping Cart Dropdown Menu -->
 					</ul>
 				</nav>
 			</div>
@@ -102,6 +72,7 @@
 				}
 
 				function logOut() {
+                    window.localStorage.setItem('userid', '');
 					window.localStorage.setItem('username', '');
 					window.location = "http://localhost:8080/";
 				}
@@ -144,7 +115,7 @@
                     <!-- Display hot foods from api -->
                     <ul>
                         <div id="hot_items"></div>
-                        <script src="js/food_list/hot_foods.js"></script>
+                        <script src="js/food_list/hot_foods.js?a=new Date(1)"></script>
                     </ul>
                 </div>
             </div>
