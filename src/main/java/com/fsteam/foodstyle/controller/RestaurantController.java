@@ -40,6 +40,9 @@ public class RestaurantController {
             System.out.println("Restaurant id cannot be null.");
             return null;
         }
+        if (restaurant.getAvgprice() == null){
+            restaurant.setAvgprice(restaurantRepository.findById(restaurant.getId()).get().getAvgprice());
+        }
         return restaurantRepository.save(restaurant);
     }
 
@@ -90,5 +93,11 @@ public class RestaurantController {
     @ResponseBody
     public List<Restaurant> findIndianRestaurantsByNameLike(@PathVariable String name){
         return this.getRestaurent(3, name);
+    }
+
+    @GetMapping("/restaurants/top")
+    @ResponseBody
+    public List<Restaurant> findTop5(){
+        return restaurantRepository.findTop5ByNameLikeOrderBySoldDesc("%%");
     }
 }

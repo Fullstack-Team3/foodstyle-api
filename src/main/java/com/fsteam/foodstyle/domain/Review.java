@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.Instant;
 
 @Entity
 public class Review {
@@ -18,6 +19,36 @@ public class Review {
     private Integer rating;
 
     private String review;
+
+    private Instant reviewtime;
+
+    private Long userid;
+
+    private String username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Instant getReviewtime() {
+        return reviewtime;
+    }
+
+    public void setReviewtime(Instant reviewtime) {
+        this.reviewtime = reviewtime;
+    }
+
+    public Long getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Long userid) {
+        this.userid = userid;
+    }
 
     public Long getId() {
         return id;

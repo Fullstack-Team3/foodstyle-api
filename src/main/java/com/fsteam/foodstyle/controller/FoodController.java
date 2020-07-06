@@ -67,7 +67,12 @@ public class FoodController {
         if (food.getRestaurantid() == null){
             food.setRestaurantid(1L);
         }
-        return foodRepository.save(food);
+        Food f = foodRepository.save(food);
+        Double avgPrice = foodRepository.findAvgPriceByRestaurantId(food.getRestaurantid());
+        Restaurant restaurant = restaurantRepository.findById(food.getRestaurantid()).get();
+        restaurant.setAvgprice(NumberUtil.getDecimal(avgPrice,2));
+        restaurantRepository.save(restaurant);
+        return f;
     }
 
     @GetMapping("/food")
@@ -92,5 +97,11 @@ public class FoodController {
     @ResponseBody
     public List<Food> findTop5FoodsByRestaurantId(@PathVariable Long restaurantId){
         return foodRepository.findTop5ByRestaurantidOrderBySoldDesc(restaurantId);
+    }
+
+    @GetMapping("/food/top")
+    @ResponseBody
+    public List<Food> findTop5Foods(){
+        return foodRepository.findTop5ByNameLikeOrderBySoldDesc("%%");
     }
 }

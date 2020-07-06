@@ -88,6 +88,9 @@ public class UserController {
             map.put("success", 1);
             map.put("userid", user.getId());
             map.put("username", user.getFirstname());
+            int loginTimes = user.getLogintimes() == null ? 0 :user.getLogintimes();
+            user.setLogintimes(loginTimes + 1);
+            userRepository.save(user);
         }else {
             map.put("success", 0);
             map.put("message", "Login failed, please check your email and password!");
@@ -95,15 +98,47 @@ public class UserController {
         return map;
     }
 
-    @GetMapping("/managers-login")
+    @PostMapping("/managers-login")
     @ResponseBody
-    public User managerLogin(){
-        User user = new User();
-        user.setEmail("longfei@email.com");
-        user.setFirstname("Longfei");
-        user.setLastname("Wang");
-        user.setPassword("123456");
-        user.setUserType(2);
-        return userRepository.save(user);
+    public Map<String, Object> managerLogin(@RequestBody LoginVM loginVM){
+        Map<String, Object> map = new HashMap<>();
+        System.out.println(loginVM.getEmail());
+        System.out.println(loginVM.getPassword());
+        if (loginVM.getVerifyCode() == null || "".equals(loginVM.getVerifyCode().trim())
+                || !loginVM.getVerifyCode().trim().equals("jgmxj")){
+            map.put("success", 0);
+            map.put("message", "Login failed, please check your verify code!");
+            return map;
+        }
+        User user = userRepository.findFirstByEmailAndPassword(loginVM.getEmail(), loginVM.getPassword());
+
+        if (user != null){
+            if (user.getUserType() == 2){
+                map.put("success", 0);
+                map.put("message", "Login failed, please check your email and password!");
+                return map;
+            }
+            map.put("success", 1);
+            map.put("userid", user.getId());
+            map.put("usertype", user.getUserType());
+            map.put("username", user.getFirstname());
+            map.put("restaurantid", user.getRestaurantid() == null ? "" : user.getRestaurantid());
+        }else {
+            map.put("success", 0);
+            map.put("message", "Login failed, please check your email and password!");
+        }
+        return map;
+    }
+
+    @GetMapping("/users/count")
+    @ResponseBody
+    public Integer getUsersCount(){
+        return userRepository.findAllByUserType(2).size();
+    }
+
+    @GetMapping("/users/unique")
+    @ResponseBody
+    public Integer getUniqueVisitorsCount(){
+        return userRepository.findAllByUserTypeAndLogintimes(2, 1).size();
     }
 }

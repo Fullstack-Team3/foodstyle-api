@@ -9,4 +9,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     public List<User> findAllByUserType(Integer userType);
 
     public User findFirstByEmailAndPassword(String email, String password);
+
+    List<User> findAllByUserTypeAndLogintimes(Integer userType, Integer loginTimes);
 }

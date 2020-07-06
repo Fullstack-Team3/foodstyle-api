@@ -423,4 +423,23 @@
     $('.product-image-thumb.active').removeClass('active');
     $(this).addClass('active');
   });
-})(jQuery)
+})(jQuery);
+
+var managerId = window.localStorage.getItem('managerId');
+var userType = window.localStorage.getItem('userType');
+var manageName = window.localStorage.getItem('managerName');
+if (manageName){
+    $('#loginName').text(manageName);
+}else {
+    window.location = 'http://localhost:8080/managerpages/login.html';
+}
+if (userType == 0){
+  $('#managerMenu').show();
+  $('#restaurantMenu').show();
+}
+function logout() {
+    window.localStorage.setItem('managerId', '');
+    window.localStorage.setItem('managerName', '');
+    window.localStorage.setItem('userType', '');
+    window.location = 'http://localhost:8080/managerpages/login.html';
+}

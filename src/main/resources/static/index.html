@@ -23,6 +23,7 @@
     -->
     <link rel="stylesheet" href="managerpages/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="managerpages/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="customerpages/css/review.css">
     <script src="managerpages/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="https://js.stripe.com/v3/"></script>
 
@@ -48,9 +49,14 @@
             }
             var h3_2 = $('<h3></h3>');
             h3_2.text(obj.description);
+
+            var p_rating = $('<div></div>');
+            p_rating.html(getRating(obj.rating));
+
             var avgprice = $('<div class="price">Average Price <em>$</em><strong>'+ obj.avgprice +'</strong><em></em></div>');
             h3.appendTo(div);
             h3_2.appendTo(div);
+            p_rating.appendTo(div);
             avgprice.appendTo(div);
             div.appendTo(a);
 
@@ -59,6 +65,18 @@
 
             return div_col;
         }
+
+        function getRating(ratting) {
+            var div = $('<div>\n' +
+                '                        <i class="fa fa-star '+ (ratting >= 1 ? "checked" : "unchecked") +'" ></i>\n' +
+                '                        <i class="fa fa-star '+ (ratting >= 2 ? "checked" : "unchecked") +'" ></i>\n' +
+                '                        <i class="fa fa-star '+ (ratting >= 3 ? "checked" : "unchecked") +'" ></i>\n' +
+                '                        <i class="fa fa-star '+ (ratting >= 4 ? "checked" : "unchecked") +'" ></i>\n' +
+                '                        <i class="fa fa-star '+ (ratting >= 5 ? "checked" : "unchecked") +'" ></i>\n' +
+                '                    </div>');
+            return div;
+        }
+
         function generateRow() {
             var row = $(' <div class="row"></div>');
             return row;
@@ -267,8 +285,8 @@
                     <img src="customerpages/images/icon_1.jpg" alt="">
                 </dt>
                 <dd>
-                    <h1>Title</h1>
-                    <h2>Detail</h2>
+                    <h1>FoodStyle</h1>
+                    <h2>www.foodstyle.com</h2>
                 </dd>
             </dl>
             <dl>
@@ -276,8 +294,8 @@
                     <img src="customerpages/images/icon_2.jpg" alt="">
                 </dt>
                 <dd>
-                    <h1>Title</h1>
-                    <h2>Detail</h2>
+                    <h1>FoodStyle</h1>
+                    <h2>www.foodstyle.com</h2>
                 </dd>
             </dl>
             <dl>
@@ -285,35 +303,18 @@
                     <img src="customerpages/images/icon_3.jpg" alt="">
                 </dt>
                 <dd>
-                    <h1>Title</h1>
-                    <h2>Detail</h2>
+                    <h1>FoodStyle</h1>
+                    <h2>www.foodstyle.com</h2>
                 </dd>
             </dl>
-			<dl>
-			    <dt class="fl">
-			        <img src="customerpages/images/icon_3.jpg" alt="">
-			    </dt>
-			    <dd>
-			        <h1>Title</h1>
-			        <h2>Detail</h2>
-			    </dd>
-			</dl>
-			<dl>
-			    <dt class="fl">
-			        <img src="customerpages/images/icon_3.jpg" alt="">
-			    </dt>
-			    <dd>
-			        <h1>Title</h1>
-			        <h2>Detail</h2>
-			    </dd>
-			</dl>
+
             <dl>
                 <dt class="fl">
                     <img src="customerpages/images/icon_4.jpg" alt="">
                 </dt>
                 <dd style="margin-right:0px;">
-                    <h1>Title</h1>
-                    <h2>Detail</h2>
+                    <h1>FoodStyle</h1>
+                    <h2>www.foodstyle.com</h2>
                 </dd>
             </dl>
 			

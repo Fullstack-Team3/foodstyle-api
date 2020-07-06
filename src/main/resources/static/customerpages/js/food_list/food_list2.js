@@ -38,6 +38,10 @@ function generateLi(obj, foodName) {
     $('<br/>').appendTo(div_2);
     p_des.appendTo(div_2);
 
+    var p_sold = $('<p></p>');
+    p_sold.text('Sold ('+obj.sold+')');
+    p_sold.appendTo(div_2);
+
     var div_3 = $('<div class="price"></div>');
     var p_price = $('<p class="price_num"><span>$</span><span>'+ obj.price +'</span></p>');
     var p_detail = $('<p></p>');
@@ -65,7 +69,7 @@ function renderElements(data, foodName) {
 function loadData(){
     var urlParams = new URLSearchParams(location.search);
     restId = urlParams.get('id');
-    var restaurantName = urlParams.get('restaurantName');
+    restaurantName = urlParams.get('restaurantName');
     $('#restaurantName').text(restaurantName);
     $.ajax({
         type: "get",
@@ -99,4 +103,8 @@ function searchFood() {
             renderElements(data, foodName);
         }
     });
+}
+
+function viewComments() {
+    window.open("http://localhost:8080/customerpages/review.html?id="+restId+"&name="+restaurantName, 'blank');
 }

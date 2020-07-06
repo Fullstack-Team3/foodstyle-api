@@ -29,6 +29,16 @@ public class User {
 
     private String restaurantname;
 
+    private Integer logintimes;
+
+    public Integer getLogintimes() {
+        return logintimes;
+    }
+
+    public void setLogintimes(Integer logintimes) {
+        this.logintimes = logintimes;
+    }
+
     public Long getId() {
         return id;
     }

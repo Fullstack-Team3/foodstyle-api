@@ -41,6 +41,8 @@
             $.each(fields, function(index, field) {
                 obj[field.name] = field.value;
             });
+            var restaurantId = window.localStorage.getItem('restaurantId');
+            obj.restaurantid = restaurantId;
             $.ajax({
                 type: "put",
                 url: "http://localhost:8080/food",

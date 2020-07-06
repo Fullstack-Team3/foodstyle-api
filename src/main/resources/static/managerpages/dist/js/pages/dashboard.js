@@ -75,6 +75,32 @@ $(function () {
           maxLevel: 10
         },
       },
+      areas: {
+          "FL": {
+              attrs: {
+                  fill: "#ffff00"
+              }
+              , attrsHover: {
+                  fill: "#a4e100"
+              }
+          },
+          "NY": {
+              attrs: {
+                  fill: "#ffff00"
+              }
+              , attrsHover: {
+                  fill: "#a4ff00"
+              }
+          },
+          "CO": {
+              attrs: {
+                  fill: "#ffff00"
+              }
+              , attrsHover: {
+                  fill: "#a4e100"
+              }
+          }
+      }
     }
   );
 

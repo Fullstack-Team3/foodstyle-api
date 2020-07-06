@@ -17,4 +17,6 @@ public interface FoodRepository extends JpaRepository<Food, Long> {
     Double findAvgPriceByRestaurantId(@Param("rid") Long rid);
 
     List<Food> findTop5ByRestaurantidOrderBySoldDesc(Long restaurantid);
+
+    List<Food> findTop5ByNameLikeOrderBySoldDesc(String name);
 }
