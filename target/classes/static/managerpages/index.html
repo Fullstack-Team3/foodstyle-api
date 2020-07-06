@@ -26,8 +26,146 @@
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+	<script>
+		function loadIndexData() {
+			getOrderCount();
+			getCommentsCount();
+			getRegistrationsCount();
+			getUniqueVisitors();
+			getTopRestaurants();
+            getTopFood();
+        }
+        function getOrderCount() {
+            $.ajax({
+                type: "get",
+                url: "http://localhost:8080/carts/count",
+                async: true,
+                contentType: 'application/json',
+                dataType: 'JSON',
+                success: function(data) {
+                    $('#totalOrders').text(data);
+                }
+            });
+        }
+
+        function getCommentsCount() {
+            $.ajax({
+                type: "get",
+                url: "http://localhost:8080/reviews/count",
+                async: true,
+                contentType: 'application/json',
+                dataType: 'JSON',
+                success: function(data) {
+                    $('#totalComments').text(data);
+                }
+            });
+        }
+        function getRegistrationsCount() {
+            $.ajax({
+                type: "get",
+                url: "http://localhost:8080/users/count",
+                async: true,
+                contentType: 'application/json',
+                dataType: 'JSON',
+                success: function(data) {
+                    $('#totalRegistrations').text(data);
+                }
+            });
+        }
+        function getUniqueVisitors() {
+            $.ajax({
+                type: "get",
+                url: "http://localhost:8080/users/unique",
+                async: true,
+                contentType: 'application/json',
+                dataType: 'JSON',
+                success: function(data) {
+                    $('#uniqueVisitors').text(data);
+                }
+            });
+        }
+        function getTopRestaurants() {
+            $.ajax({
+                type: "get",
+                url: "http://localhost:8080/restaurants/top",
+                async: true,
+                contentType: 'application/json',
+                dataType: 'JSON',
+                success: function(data) {
+                    var restaurantTable = $('#restaurantTable');
+                    restaurantTable.html('');
+                    $.each(data, function (i, obj) {
+						generateRestaurantRow(obj).appendTo(restaurantTable);
+                    })
+                }
+            });
+        }
+        function generateRestaurantRow(obj) {
+			var row = $('<tr>\n' +
+                '\t\t            <td>\n' +
+                '\t\t              <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">\n' +
+                '\t\t              '+ obj.name +'\n' +
+                '\t\t            </td>\n' +
+                '\t\t            <td>$'+ obj.avgprice +'</td>\n' +
+                '\t\t            <td>\n' +
+                '\t\t              <small class="text-success mr-1">\n' +
+                '\t\t                <i class="fas fa-arrow-up"></i>\n' +
+                '\t\t                '+ obj.id +'%\n' +
+                '\t\t              </small>\n' +
+                '\t\t              '+ obj.sold +' Sold\n' +
+                '\t\t            </td>\n' +
+                '\t\t            <td>\n' +
+                '\t\t              <a href="#" class="text-muted">\n' +
+                '\t\t                <i class="fas fa-search"></i>\n' +
+                '\t\t              </a>\n' +
+                '\t\t            </td>\n' +
+                '\t\t          </tr>');
+
+			return row;
+        }
+
+        function getTopFood() {
+            $.ajax({
+                type: "get",
+                url: "http://localhost:8080/food/top",
+                async: true,
+                contentType: 'application/json',
+                dataType: 'JSON',
+                success: function(data) {
+                    var foodTable = $('#foodTable');
+                    foodTable.html('');
+                    $.each(data, function (i, obj) {
+                        generateFoodRow(obj).appendTo(foodTable);
+                    })
+                }
+            });
+        }
+        function generateFoodRow(obj) {
+            var row = $('<tr>\n' +
+                '\t\t\t        <td>\n' +
+                '\t\t\t          <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">\n' +
+                '\t\t\t          '+ obj.name +'\n' +
+                '\t\t\t        </td>\n' +
+                '\t\t\t        <td>$'+ obj.price +' USD</td>\n' +
+                '\t\t\t        <td>\n' +
+                '\t\t\t          <small class="text-success mr-1">\n' +
+                '\t\t\t            <i class="fas fa-arrow-up"></i>\n' +
+                '\t\t\t            '+ obj.id +'%\n' +
+                '\t\t\t          </small>\n' +
+                '\t\t\t          '+ obj.sold +' Sold\n' +
+                '\t\t\t        </td>\n' +
+                '\t\t\t        <td>\n' +
+                '\t\t\t          <a href="#" class="text-muted">\n' +
+                '\t\t\t            <i class="fas fa-search"></i>\n' +
+                '\t\t\t          </a>\n' +
+                '\t\t\t        </td>\n' +
+                '\t\t\t      </tr>');
+
+            return row;
+        }
+	</script>
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body onload="loadIndexData()" class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -82,7 +220,8 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Longfei Wang</a>
+          <a href="#" class="d-block"><span id="loginName" >FS team3</span></a>
+			[<a href="javascript:void(0);" onclick="logout()">Log out</a>]
         </div>
       </div>
 
@@ -128,7 +267,7 @@
             </ul>
           </li>         
 		  
-		  <li class="nav-item has-treeview">
+		  <li id="managerMenu" style="display: none;" class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas ion-person"></i>
               <p>
@@ -153,7 +292,7 @@
             </ul>
           </li>
 		  
-		  <li class="nav-item has-treeview">
+		  <li id="restaurantMenu" style="display: none;" class="nav-item has-treeview">
 		    <a href="#" class="nav-link">
 		      <i class="nav-icon fas ion-location"></i>
 		      <p>
@@ -220,9 +359,9 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3 id="totalOrders">--</h3>
 
-                <p>New Orders</p>
+                <p>Total Orders</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -235,9 +374,9 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53</h3>
+                <h3 id="totalComments">--</h3>
 
-                <p>New Comments</p>
+                <p>Total Comments</p>
               </div>
               <div class="icon">
                 <i class="ion ion-chatbox"></i>
@@ -250,7 +389,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3 id="totalRegistrations">--</h3>
 
                 <p>User Registrations</p>
               </div>
@@ -265,7 +404,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <h3 id="uniqueVisitors">--</h3>
 
                 <p>Unique Visitors</p>
               </div>
@@ -281,6 +420,132 @@
         <!-- Main row -->
 		<div class="row">
 		  <div class="col-lg-6">
+			<div class="card">
+				  <div class="card-header border-0">
+					  <h3 class="card-title">Top 5 Popular Restaurants</h3>
+					  <div class="card-tools">
+						  <a href="#" class="btn btn-tool btn-sm">
+							  <i class="fas fa-download"></i>
+						  </a>
+						  <a href="#" class="btn btn-tool btn-sm">
+							  <i class="fas fa-bars"></i>
+						  </a>
+					  </div>
+				  </div>
+				  <div class="card-body table-responsive p-0">
+					  <table class="table table-striped table-valign-middle">
+						  <thead>
+						  <tr>
+							  <th>Restaurant</th>
+							  <th>Avg Price</th>
+							  <th>Sales</th>
+							  <th>More</th>
+						  </tr>
+						  </thead>
+						  <tbody id="restaurantTable">
+						  <tr>
+							  <td>
+								  <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+								  KFC
+							  </td>
+							  <td>$10</td>
+							  <td>
+								  <small class="text-success mr-1">
+									  <i class="fas fa-arrow-up"></i>
+									  12%
+								  </small>
+								  900 Sold
+							  </td>
+							  <td>
+								  <a href="#" class="text-muted">
+									  <i class="fas fa-search"></i>
+								  </a>
+							  </td>
+						  </tr>
+						  <tr>
+							  <td>
+								  <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+								  Spicy
+								  <span class="badge bg-danger">NEW</span>
+							  </td>
+							  <td>$29</td>
+							  <td>
+								  <small class="text-warning mr-1">
+									  <i class="fas fa-arrow-down"></i>
+									  0.5%
+								  </small>
+								  368 Sold
+							  </td>
+							  <td>
+								  <a href="#" class="text-muted">
+									  <i class="fas fa-search"></i>
+								  </a>
+							  </td>
+						  </tr>
+						  <tr>
+							  <td>
+								  <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+								  Herbfarm
+							  </td>
+							  <td>$13</td>
+							  <td>
+								  <small class="text-danger mr-1">
+									  <i class="fas fa-arrow-down"></i>
+									  3%
+								  </small>
+								  198 Sold
+							  </td>
+							  <td>
+								  <a href="#" class="text-muted">
+									  <i class="fas fa-search"></i>
+								  </a>
+							  </td>
+						  </tr>
+						  <tr>
+							  <td>
+								  <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+								  Chef Mavro
+								  <span class="badge bg-danger">NEW</span>
+							  </td>
+							  <td>$19</td>
+							  <td>
+								  <small class="text-success mr-1">
+									  <i class="fas fa-arrow-up"></i>
+									  63%
+								  </small>
+								  87 Sold
+							  </td>
+							  <td>
+								  <a href="#" class="text-muted">
+									  <i class="fas fa-search"></i>
+								  </a>
+							  </td>
+						  </tr>
+						  <tr>
+							  <td>
+								  <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+								  Le Bernardin
+
+							  </td>
+							  <td>$19</td>
+							  <td>
+								  <small class="text-success mr-1">
+									  <i class="fas fa-arrow-up"></i>
+									  63%
+								  </small>
+								  87 Sold
+							  </td>
+							  <td>
+								  <a href="#" class="text-muted">
+									  <i class="fas fa-search"></i>
+								  </a>
+							  </td>
+						  </tr>
+						  </tbody>
+					  </table>
+				  </div>
+			  </div>
+			<!-- /.card -->
 		    <div class="card">
 		      <div class="card-header border-0">
 		        <div class="d-flex justify-content-between">
@@ -302,16 +567,16 @@
 		          </p>
 		        </div>
 		        <!-- /.d-flex -->
-		
+
 		        <div class="position-relative mb-4">
 		          <canvas id="visitors-chart" height="200"></canvas>
 		        </div>
-		
+
 		        <div class="d-flex flex-row justify-content-end">
 		          <span class="mr-2">
 		            <i class="fas fa-square text-primary"></i> This Week
 		          </span>
-		
+
 		          <span>
 		            <i class="fas fa-square text-gray"></i> Last Week
 		          </span>
@@ -319,136 +584,134 @@
 		      </div>
 		    </div>
 		    <!-- /.card -->
-		
-		    <div class="card">
-		      <div class="card-header border-0">
-		        <h3 class="card-title">Top 5 Popular Restaurants</h3>
-		        <div class="card-tools">
-		          <a href="#" class="btn btn-tool btn-sm">
-		            <i class="fas fa-download"></i>
-		          </a>
-		          <a href="#" class="btn btn-tool btn-sm">
-		            <i class="fas fa-bars"></i>
-		          </a>
-		        </div>
-		      </div>
-		      <div class="card-body table-responsive p-0">
-		        <table class="table table-striped table-valign-middle">
-		          <thead>
-		          <tr>
-		            <th>Restaurant</th>
-		            <th>Avg Price</th>
-		            <th>Sales</th>
-		            <th>More</th>
-		          </tr>
-		          </thead>
-		          <tbody>
-		          <tr>
-		            <td>
-		              <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-		              KFC
-		            </td>
-		            <td>$10</td>
-		            <td>
-		              <small class="text-success mr-1">
-		                <i class="fas fa-arrow-up"></i>
-		                12%
-		              </small>
-		              900 Sold
-		            </td>
-		            <td>
-		              <a href="#" class="text-muted">
-		                <i class="fas fa-search"></i>
-		              </a>
-		            </td>
-		          </tr>
-		          <tr>
-		            <td>
-		              <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-		              Spicy
-					  <span class="badge bg-danger">NEW</span>
-		            </td>
-		            <td>$29</td>
-		            <td>
-		              <small class="text-warning mr-1">
-		                <i class="fas fa-arrow-down"></i>
-		                0.5%
-		              </small>
-		              368 Sold
-		            </td>
-		            <td>
-		              <a href="#" class="text-muted">
-		                <i class="fas fa-search"></i>
-		              </a>
-		            </td>
-		          </tr>
-		          <tr>
-		            <td>
-		              <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-		              Herbfarm
-		            </td>
-		            <td>$13</td>
-		            <td>
-		              <small class="text-danger mr-1">
-		                <i class="fas fa-arrow-down"></i>
-		                3%
-		              </small>
-		              198 Sold
-		            </td>
-		            <td>
-		              <a href="#" class="text-muted">
-		                <i class="fas fa-search"></i>
-		              </a>
-		            </td>
-		          </tr>
-		          <tr>
-		            <td>
-		              <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-		              Chef Mavro
-		              <span class="badge bg-danger">NEW</span>
-		            </td>
-		            <td>$19</td>
-		            <td>
-		              <small class="text-success mr-1">
-		                <i class="fas fa-arrow-up"></i>
-		                63%
-		              </small>
-		              87 Sold
-		            </td>
-		            <td>
-		              <a href="#" class="text-muted">
-		                <i class="fas fa-search"></i>
-		              </a>
-		            </td>
-		          </tr>
-				  <tr>
-				    <td>
-				      <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-				      Le Bernardin
-				      
-				    </td>
-				    <td>$19</td>
-				    <td>
-				      <small class="text-success mr-1">
-				        <i class="fas fa-arrow-up"></i>
-				        63%
-				      </small>
-				      87 Sold
-				    </td>
-				    <td>
-				      <a href="#" class="text-muted">
-				        <i class="fas fa-search"></i>
-				      </a>
-				    </td>
-				  </tr>
-		          </tbody>
-		        </table>
-		      </div>
-		    </div>
-		    <!-- /.card -->
 		  </div>
 		  <!-- /.col-md-6 -->
 		  <div class="col-lg-6">
+			<div class="card">
+				  <div class="card-header border-0">
+					  <h3 class="card-title">Top 5 Popular Foods</h3>
+					  <div class="card-tools">
+						  <a href="#" class="btn btn-tool btn-sm">
+							  <i class="fas fa-download"></i>
+						  </a>
+						  <a href="#" class="btn btn-tool btn-sm">
+							  <i class="fas fa-bars"></i>
+						  </a>
+					  </div>
+				  </div>
+				  <div class="card-body table-responsive p-0">
+					  <table class="table table-striped table-valign-middle">
+						  <thead>
+						  <tr>
+							  <th>Product</th>
+							  <th>Price</th>
+							  <th>Sales</th>
+							  <th>More</th>
+						  </tr>
+						  </thead>
+						  <tbody id="foodTable">
+						  <tr>
+							  <td>
+								  <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+								  Lobster
+							  </td>
+							  <td>$13 USD</td>
+							  <td>
+								  <small class="text-success mr-1">
+									  <i class="fas fa-arrow-up"></i>
+									  12%
+								  </small>
+								  900 Sold
+							  </td>
+							  <td>
+								  <a href="#" class="text-muted">
+									  <i class="fas fa-search"></i>
+								  </a>
+							  </td>
+						  </tr>
+						  <tr>
+							  <td>
+								  <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+								  Mud Pie
+							  </td>
+							  <td>$29 USD</td>
+							  <td>
+								  <small class="text-warning mr-1">
+									  <i class="fas fa-arrow-down"></i>
+									  0.5%
+								  </small>
+								  556 Sold
+							  </td>
+							  <td>
+								  <a href="#" class="text-muted">
+									  <i class="fas fa-search"></i>
+								  </a>
+							  </td>
+						  </tr>
+						  <tr>
+							  <td>
+								  <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+								  Pizza
+							  </td>
+							  <td>$1,230 USD</td>
+							  <td>
+								  <small class="text-danger mr-1">
+									  <i class="fas fa-arrow-down"></i>
+									  3%
+								  </small>
+								  198 Sold
+							  </td>
+							  <td>
+								  <a href="#" class="text-muted">
+									  <i class="fas fa-search"></i>
+								  </a>
+							  </td>
+						  </tr>
+						  <tr>
+							  <td>
+								  <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+								  Fish
+								  <span class="badge bg-danger">NEW</span>
+							  </td>
+							  <td>$199 USD</td>
+							  <td>
+								  <small class="text-success mr-1">
+									  <i class="fas fa-arrow-up"></i>
+									  63%
+								  </small>
+								  87 Sold
+							  </td>
+							  <td>
+								  <a href="#" class="text-muted">
+									  <i class="fas fa-search"></i>
+								  </a>
+							  </td>
+						  </tr>
+						  <tr>
+							  <td>
+								  <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+								  Hot Dog
+								  <span class="badge bg-danger">NEW</span>
+							  </td>
+							  <td>$199 USD</td>
+							  <td>
+								  <small class="text-success mr-1">
+									  <i class="fas fa-arrow-up"></i>
+									  63%
+								  </small>
+								  86 Sold
+							  </td>
+							  <td>
+								  <a href="#" class="text-muted">
+									  <i class="fas fa-search"></i>
+								  </a>
+							  </td>
+						  </tr>
+						  </tbody>
+					  </table>
+				  </div>
+			  </div>
+			<!-- /.card -->
 		    <div class="card">
 		      <div class="card-header border-0">
 		        <div class="d-flex justify-content-between">
@@ -487,133 +750,6 @@
 		      </div>
 		    </div>
 		    <!-- /.card -->
-			<div class="card">
-			  <div class="card-header border-0">
-			    <h3 class="card-title">Top 5 Popular Foods</h3>
-			    <div class="card-tools">
-			      <a href="#" class="btn btn-tool btn-sm">
-			        <i class="fas fa-download"></i>
-			      </a>
-			      <a href="#" class="btn btn-tool btn-sm">
-			        <i class="fas fa-bars"></i>
-			      </a>
-			    </div>
-			  </div>
-			  <div class="card-body table-responsive p-0">
-			    <table class="table table-striped table-valign-middle">
-			      <thead>
-			      <tr>
-			        <th>Product</th>
-			        <th>Price</th>
-			        <th>Sales</th>
-			        <th>More</th>
-			      </tr>
-			      </thead>
-			      <tbody>
-			      <tr>
-			        <td>
-			          <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-			          Lobster
-			        </td>
-			        <td>$13 USD</td>
-			        <td>
-			          <small class="text-success mr-1">
-			            <i class="fas fa-arrow-up"></i>
-			            12%
-			          </small>
-			          900 Sold
-			        </td>
-			        <td>
-			          <a href="#" class="text-muted">
-			            <i class="fas fa-search"></i>
-			          </a>
-			        </td>
-			      </tr>
-			      <tr>
-			        <td>
-			          <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-			          Mud Pie
-			        </td>
-			        <td>$29 USD</td>
-			        <td>
-			          <small class="text-warning mr-1">
-			            <i class="fas fa-arrow-down"></i>
-			            0.5%
-			          </small>
-			          556 Sold
-			        </td>
-			        <td>
-			          <a href="#" class="text-muted">
-			            <i class="fas fa-search"></i>
-			          </a>
-			        </td>
-			      </tr>
-			      <tr>
-			        <td>
-			          <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-			          Pizza
-			        </td>
-			        <td>$1,230 USD</td>
-			        <td>
-			          <small class="text-danger mr-1">
-			            <i class="fas fa-arrow-down"></i>
-			            3%
-			          </small>
-			          198 Sold
-			        </td>
-			        <td>
-			          <a href="#" class="text-muted">
-			            <i class="fas fa-search"></i>
-			          </a>
-			        </td>
-			      </tr>
-			      <tr>
-			        <td>
-			          <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-			          Fish
-			          <span class="badge bg-danger">NEW</span>
-			        </td>
-			        <td>$199 USD</td>
-			        <td>
-			          <small class="text-success mr-1">
-			            <i class="fas fa-arrow-up"></i>
-			            63%
-			          </small>
-			          87 Sold
-			        </td>
-			        <td>
-			          <a href="#" class="text-muted">
-			            <i class="fas fa-search"></i>
-			          </a>
-			        </td>
-			      </tr>
-				  <tr>
-				    <td>
-				      <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-				      Hot Dog
-				      <span class="badge bg-danger">NEW</span>
-				    </td>
-				    <td>$199 USD</td>
-				    <td>
-				      <small class="text-success mr-1">
-				        <i class="fas fa-arrow-up"></i>
-				        63%
-				      </small>
-				      86 Sold
-				    </td>
-				    <td>
-				      <a href="#" class="text-muted">
-				        <i class="fas fa-search"></i>
-				      </a>
-				    </td>
-				  </tr>
-			      </tbody>
-			    </table>
-			  </div>
-			</div>
-			<!-- /.card -->
-			<!-- /.card -->
-		    
 		  </div>
 		  <!-- /.col-md-6 -->
 		</div>
@@ -942,10 +1078,10 @@
 <script src="dist/js/adminlte.js"></script>
 <!--  dashboard demo (This is only for demo purposes) -->
 <script src="dist/js/pages/dashboard2.js"></script>
-<script src="dist/js/pages/dashboard.js"></script>
+<script src="dist/js/pages/dashboard.js?a=new Date(5)"></script>
 <script src="dist/js/pages/dashboard3.js"></script>
 
 <!-- demo purposes -->
-<script src="dist/js/demo.js"></script>
+<script src="dist/js/demo.js?a=new Date()"></script>
 </body>
 </html>

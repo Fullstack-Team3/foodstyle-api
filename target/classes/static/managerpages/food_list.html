@@ -40,9 +40,7 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="index.html" class="nav-link">Home</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
+
     </ul>
 
     <!-- SEARCH FORM -->
@@ -58,7 +56,7 @@
     </form>
 
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
+    <ul style="display: none;" class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -139,9 +137,10 @@
         <div class="image">
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
-        <div class="info">
-          <a href="#" class="d-block">Longfei Wang</a>
-        </div>
+          <div class="info">
+              <a href="#" class="d-block"><span id="loginName" >FS team3</span></a>
+              [<a href="javascript:void(0);" onclick="logout()">Log out</a>]
+          </div>
       </div>
 
       <!-- Sidebar Menu -->
@@ -186,7 +185,7 @@
             </ul>
           </li>         
 		  
-		  <li class="nav-item has-treeview">
+		  <li id="managerMenu" style="display: none;" class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas ion-person"></i>
               <p>
@@ -211,7 +210,7 @@
             </ul>
           </li>
 		  
-		  <li class="nav-item has-treeview">
+		  <li id="restaurantMenu" style="display: none;" class="nav-item has-treeview">
 		    <a href="#" class="nav-link">
 		      <i class="nav-icon fas ion-location"></i>
 		      <p>
@@ -270,7 +269,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div id="main-content" class="content-wrapper" height="100%">
     <!-- Main content -->
-    <iframe src="food_list_content.html" width="100%" height="500px" frameborder="0">
+    <iframe src="food_list_content.html?a=new Date()" width="100%" height="500px" frameborder="0">
      
      </iframe>
   </div>
@@ -329,6 +328,6 @@
 <script src="dist/js/pages/dashboard3.js"></script>
 
 <!-- demo purposes -->
-<script src="dist/js/demo.js"></script>
+<script src="dist/js/demo.js?a=new Date()"></script>
 </body>
 </html>

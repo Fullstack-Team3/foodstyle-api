@@ -30,9 +30,11 @@
             });
         }
         function loadData(){
+            var restaurantId = window.localStorage.getItem('restaurantId');
+            var getUrl = restaurantId ? ("http://localhost:8080/food/restaurant/" + restaurantId) : "http://localhost:8080/food";
             $.ajax({
                 type: "get",
-                url: "http://localhost:8080/food",
+                url: getUrl,
                 async: true,
                 contentType: 'application/json',
                 dataType: 'JSON',
@@ -87,7 +89,7 @@
     </table>
 	<table width="100%">
 		<tr>
-			<td colspan="9" align="center" width="100%"><a class="btn btn-primary" href="food_add_content.html">Add New Food</a></td>
+			<td colspan="9" align="center" width="100%"><a class="btn btn-primary" href="food_add_content.html?a=new Date()">Add New Food</a></td>
 		</tr>
 	</table>
 </div>

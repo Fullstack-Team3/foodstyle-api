@@ -19,6 +19,8 @@
             $.each(fields, function(index, field) {
                 obj[field.name] = field.value;
             });
+            var restaurantId = window.localStorage.getItem('restaurantId');
+            obj.restaurantid = restaurantId;
             $.ajax({
                 type: "post",
                 url: "http://localhost:8080/food",
@@ -28,7 +30,7 @@
                 data: JSON.stringify(obj),
                 success: function(data) {
                     alert("Created successfully!");
-                    location.href = "http://localhost:8080/managerpages/food_list_content.html"
+                    location.href = "http://localhost:8080/managerpages/food_list_content.html?a=new Date(1)"
                 }
             });
         }
