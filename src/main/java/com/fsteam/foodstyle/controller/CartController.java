@@ -26,8 +26,8 @@ import java.util.*;
 
 @Controller
 public class CartController {
-    private static final String publicKey = "pk_test_51Gqq9CEaMpKcmsDiHu5eJYRiw8oW9zN6C5Hs5gu7MYjaakaLjeYzw4DQdY9lq62itq5DtTcbkeEpZOkZA12UvkOR00HGGHDGtZ";
-    private static final String apiKey = "sk_test_51Gqq9CEaMpKcmsDi8Pwe8DKsxNk6k9rpW1Xpv4R46M6wGY6TvaF8phDooV672raI0tBSp90pOSR3MZLoONPWNsUW00ahKvE01h";
+    private static final String publicKey = "pk_test_51H28gbINIrThnVruHZ9Ia5cGvzUqy99lSrdlrxVCPPMFKNwUm5fGSm7fU9rnGl5YF0LXFT9hwphbSusOQ9jVGK0A00MndJIdz4";
+    private static final String apiKey = "sk_test_51H28gbINIrThnVruwPReavMpb4oOjSAaCTRyIyp7WTyhS5QxFBJMlYegUBxOvPr2MpjgDfmk58Eq2avGsB0XOBCc00dIA68pJe";
 
     @Autowired
     private FoodRepository foodRepository;

@@ -1,6 +1,5 @@
 package com.fsteam.foodstyle.controller;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.fsteam.foodstyle.domain.Restaurant;
 import com.fsteam.foodstyle.domain.User;
 import com.fsteam.foodstyle.repository.RestaurantRepository;
@@ -9,6 +8,8 @@ import com.fsteam.foodstyle.vm.LoginVM;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.HashMap;
 import java.util.List;
@@ -22,6 +23,11 @@ public class UserController {
 
     @Autowired
     private RestaurantRepository restaurantRepository;
+
+    @GetMapping("/admin")
+    public ModelAndView redirect(){
+        return new ModelAndView(new RedirectView("/managerpages/index.html"));
+    }
 
     @GetMapping("/managers")
     @ResponseBody
@@ -107,7 +113,7 @@ public class UserController {
         if (loginVM.getVerifyCode() == null || "".equals(loginVM.getVerifyCode().trim())
                 || !loginVM.getVerifyCode().trim().equals("jgmxj")){
             map.put("success", 0);
-            map.put("message", "Login failed, please check your verify code!");
+            map.put("message", "Login failed, please check your verification code!");
             return map;
         }
         User user = userRepository.findFirstByEmailAndPassword(loginVM.getEmail(), loginVM.getPassword());
