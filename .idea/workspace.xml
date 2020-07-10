@@ -22,7 +22,6 @@
     <list default="true" id="1cf1ef25-f0af-48f4-9116-dbfaef166ee2" name="Default Changelist" comment="update many frontend  pages">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/fsteam/foodstyle/controller/UserController.class" afterPath="$PROJECT_DIR$/target/classes/com/fsteam/foodstyle/controller/UserController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/domain/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/fsteam/foodstyle/domain/User.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/customerpages/login.html" afterPath="$PROJECT_DIR$/target/classes/static/customerpages/login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/customerpages/register.html" afterPath="$PROJECT_DIR$/target/classes/static/customerpages/register.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/managerpages/index.html" afterPath="$PROJECT_DIR$/target/classes/static/managerpages/index.html" />
@@ -604,6 +603,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="14" column="29" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -688,6 +688,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
           <caret line="88" column="27" lean-forward="false" selection-start-line="88" selection-start-column="15" selection-end-line="88" selection-end-column="27" />
+          <folding>
+            <element signature="e#1568#1569#0" expanded="false" />
+            <element signature="e#1603#1604#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -800,6 +804,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="669">
           <caret line="104" column="66" lean-forward="true" selection-start-line="104" selection-start-column="66" selection-end-line="104" selection-end-column="66" />
+          <folding>
+            <element signature="e#3552#3553#0" expanded="true" />
+            <element signature="e#3629#3630#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -856,6 +864,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
           <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -863,6 +872,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
