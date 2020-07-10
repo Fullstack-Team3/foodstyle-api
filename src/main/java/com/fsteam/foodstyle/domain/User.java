@@ -2,6 +2,10 @@ package com.fsteam.foodstyle.domain;
 
 import javax.persistence.*;
 
+/**
+ * insert into user (address, email, firstname, lastname, password, user_type)
+ values('Test address', 'admin@gmail.com', 'Team3', 'FS', '123456', 0);
+ */
 @Entity
 public class User {
     @Id
